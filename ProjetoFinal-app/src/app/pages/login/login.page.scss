@@ -1,0 +1,29 @@
+ion-toolbar{
+  --background: rgba(130, 116, 116, 0.82);
+}
+
+ion-content.fundo{
+  --background: url('../../../assets/imagens/fundoFrutas.jpg') 100% 100% no-repeat;
+
+}
+.divFormulario{
+  background-color: rgba(130, 116, 116, 0.82);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+.inputLogin{
+  width: 90%;
+  border-radius: 15px;
+  margin: 3%;
+  border-style: solid;
+  height: 50px;
+}
+.centralizar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button>
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="fundo">
+  <div class="centralizar">
+  <form class="login" [formGroup]="loginForm" (ngSubmit)="logarUsuario(loginForm)">
+    <div class="divFormulario">
+      <p>Login</p>
+        <ion-item class="inputLogin">
+          <ion-input type="email" placeholder="e-mail" formControlName = "email"></ion-input>
+        </ion-item>
+        <ion-item class="inputLogin">
+          <ion-input type="password" placeholder="senha" formControlName = "password"></ion-input>
+        </ion-item>
+    </div>
+      <div class="botaoSubmit">
+        <ion-button type="submit">Entrar</ion-button>
+      </div>
+  </form>
+  </div>
+</ion-content>
