@@ -10,14 +10,20 @@ import { Validators, FormBuilder, FormGroup, ReactiveFormsModule, FormsModule  }
 export class LoginPage implements OnInit {
   public loginForm: FormGroup;
 
+
+
   constructor(public formBuilder: FormBuilder) {
     this.loginForm =  this.formBuilder.group({
-       email: ['', Validators.required],
-       password: ['', Validators.required]
+       email: ['email', Validators.required],
+       password: ['password', Validators.required]
      });
    }
 
   ngOnInit() {
+  }
+
+  logarUsuario(form){
+    console.log(form);
   }
 
 }

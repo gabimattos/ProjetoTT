@@ -9,7 +9,7 @@
   <div class="centralizar">
   <form class="login" [formGroup]="loginForm" (ngSubmit)="logarUsuario(loginForm)">
     <div class="divFormulario">
-      <p>Login</p>
+      <h2>Login</h2>
         <ion-item class="inputLogin">
           <ion-input type="email" placeholder="e-mail" formControlName = "email"></ion-input>
         </ion-item>
@@ -17,9 +17,9 @@
           <ion-input type="password" placeholder="senha" formControlName = "password"></ion-input>
         </ion-item>
     </div>
-      <div class="botaoSubmit">
-        <ion-button type="submit">Entrar</ion-button>
-      </div>
+      <ion-row>
+        <ion-button type="submit" color="success" shape="round" [disabled]="loginForm.invalid">Entrar</ion-button>
+      </ion-row>
   </form>
   </div>
 </ion-content>

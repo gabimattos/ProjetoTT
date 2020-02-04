@@ -1,0 +1,19 @@
+ion-content.fundo{
+  --background: url('../../../assets/imagens/fundoFrutas.jpg') 100% 100% no-repeat;
+}
+ion-label.logo{
+  display: flex;
+  justify-content: center;
+}
+.botoesCarrinho{
+  height: 10vh;
+  width: 50%;
+  margin: auto;
+  border: 1px solid black;
+}
+.sideMenu{
+  padding-left: center;
+}
+ion-label{
+  font-style: italic;
+}
