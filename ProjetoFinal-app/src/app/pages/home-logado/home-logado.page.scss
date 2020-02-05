@@ -1,0 +1,45 @@
+#col1{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+
+  border-style:groove;
+}
+
+#col2{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+
+#col3{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:start;
+}
+
+#shopp {
+  font-size: 32px;
+}
+.ProdutosEstacaoCard{
+  background-color: white;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+
+  padding: 0px;
+}
+
+.cardhome{
+  width: 36vw;
+  height: 23vh;
+  background-color: white;
+
+}
+
+h1{
+  color:white;
+}

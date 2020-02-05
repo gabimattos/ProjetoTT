@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fundo">
+
+  <div class="ion-padding">
+      <form [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm)">
+
+        <ion-list >
+          <ion-item  [class.invalid]="registerForm.controls.name.invalid && registerForm.controls.name.touched">
+            <ion-label position = "floating"> Nome </ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
+          </ion-item>
+
+          <ion-item [class.invalid]="registerForm.controls.email.invalid && registerForm.controls.email.touched">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" formControlName="email"> </ion-input>
+          </ion-item>
+
+          <ion-item [class.invalid]="registerForm.controls.password.invalid && registerForm.controls.password.touched">
+            <ion-label position="floating">Senha</ion-label>
+            <ion-input type="password" formControlName="password"> </ion-input>
+          </ion-item>
+
+          <ion-item [class.invalid]="registerForm.controls.estate.invalid && registerForm.controls.estate.touched">
+            <ion-label position="floating">Estado:</ion-label>
+            <ion-input type="text" formControlName="estate" > </ion-input>
+          </ion-item>
+
+          <ion-item  [class.invalid]="registerForm.controls.town.invalid && registerForm.controls.town.touched">
+            <ion-label position="floating">Cidade:</ion-label>
+            <ion-input type="text" formControlName="town" > </ion-input>
+          </ion-item>
+
+        </ion-list>
+
+        <ion-row class="ion-justify-content-center">
+          <ion-button type="submit" color="danger" shape="round" [disabled]="registerForm.invalid">Cadastrar</ion-button>
+        </ion-row>
+
+      </form>
+
+    </div>
+
+</ion-content>

@@ -1,4 +1,75 @@
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
+.InsideCard{
+  width: 30%;
+  height: 20%;
+}
+.ProdutosEstacaoCard{
+  background-color: white;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+
+  padding: 0px;
+}
+
+#imgcard1{
+  --background: url('/../../assets/imagens/caqui.pn');
+  height: 70%;
+}
+
+#imgcard2{
+  --background: url('/../../assets/imagens/morango.jpg');
+  height: 70%;
+}
+
+#imgcard3{
+  --background: url('/../../assets/imagens/fruta.jpg');
+  height: 70%;
+}
+
+#imgcard4{
+  --background: url('/../../assets/imagens/banana.jpg');
+  height: 70%;
+}
+
+
+.titleCard1{
+  --color: white;
+}
+
+h1{
+  color:white;
+}
+
+.cardhome{
+  width: 36vw;
+  height: 23vh;
+  background-color: white;
+
+}
+
+#col1{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+
+  border-style:groove;
+}
+
+#col2{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+
+#col3{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:start;
+}
+
+#shopp {
+  font-size: 32px;
 }

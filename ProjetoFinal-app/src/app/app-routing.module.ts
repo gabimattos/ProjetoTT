@@ -8,16 +8,20 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
-  },
-  {
-    path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
-  },
-  {
     path: 'cadastro',
-    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
+    loadChildren: () => import('./pages/cadastro/cadastro.module').then( m => m.CadastroPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'busca',
+    loadChildren: () => import('./pages/busca/busca.module').then( m => m.BuscaPageModule)
+  },
+  {
+    path: 'home-logado',
+    loadChildren: () => import('./pages/home-logado/home-logado.module').then( m => m.HomeLogadoPageModule)
   }
 ];
 
