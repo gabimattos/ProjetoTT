@@ -57,5 +57,6 @@ class User extends Authenticatable
         $this->email = $request->email;
         $this->city = $request->city;
         $this->state = $request->state;
+        $this->save();
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\User as UserResource;
 use App\User;
@@ -10,9 +11,9 @@ use App\User;
 class UserController extends Controller
 {
     public function storeUser(UserRequest $request){
-        $user = new App\User;
+        $user = new User;
         $user->createUser($request);
-        return response()->success($user);
+        return response()->json([$user]);
     }
 
     public function listUser(){
@@ -51,6 +52,14 @@ class UserController extends Controller
             if($request->delivery_price){
                 $user->delivery_price = $request->delivery_price;
             }
+            if($request->photo){
+                if(!Storage::exists('localPhotos/'))
+                    Storage::makeDirectory('localPhotos/',0775,true);
+                $file = $request->file('photo');
+                $filename = $user->id.'.'.$file->getClientOriginalExtension();
+                $path = $file->storeAs('localPhotos',$filename);
+                $user->photo = $path;
+            }
             $user->save();
             return response()->json([$user]);
         }
@@ -60,8 +69,14 @@ class UserController extends Controller
     }
 
     public function deleteUser($id){
-
+        $user = User::findOrFail($id);
+        Storage::delete($user->photo);
         User::destroy($id);
         return response()->json(['Usuario deletado']);
+    }
+
+    public function visualize($id){
+        $user = User::findOrFail($id);
+        return Storage::download($user->photo);
     }
 }

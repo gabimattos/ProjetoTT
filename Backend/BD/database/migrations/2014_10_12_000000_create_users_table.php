@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->float('delivery_price')->nullable();
+            $table->string('photo')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

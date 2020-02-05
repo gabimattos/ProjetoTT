@@ -33,6 +33,7 @@ class UserRequest extends FormRequest
                 'email' => 'required|email|unique:users',
                 'city' => 'required|string',
                 'state' => 'required|string',
+                'photo' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
             ];
         }
     }

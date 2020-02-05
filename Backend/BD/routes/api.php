@@ -31,3 +31,5 @@ Route::group(['middleware'=>'auth:api'],function(){
     Route::post('logoutUser','API\PassportController@logout');
     Route::post('getDetailsUser','API\PassportController@getDetails');
 });
+
+Route::get('visualizar/{id}','UserController@visualize');
