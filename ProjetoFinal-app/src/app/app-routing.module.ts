@@ -8,12 +8,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+    path: 'cadastro',
+    loadChildren: () => import('./pages/cadastro/cadastro.module').then( m => m.CadastroPageModule)
   },
   {
-    path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'busca',
+    loadChildren: () => import('./pages/busca/busca.module').then( m => m.BuscaPageModule)
   },
   {
     path: 'login',
@@ -22,6 +26,10 @@ const routes: Routes = [
   {
     path: 'carrinho',
     loadChildren: () => import('./pages/carrinho/carrinho.module').then( m => m.CarrinhoPageModule)
+  },
+  {
+    path: 'home-logado',
+    loadChildren: () => import('./pages/home-logado/home-logado.module').then( m => m.HomeLogadoPageModule)
   }
 
 ];

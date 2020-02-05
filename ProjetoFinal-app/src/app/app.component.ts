@@ -17,14 +17,25 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    },
-    {
       title: 'login',
       url: '/login',
       icon: 'login'
+    },
+    {
+      title: 'Home Logado',
+      url: '/home-logado',
+      icon: 'home'
+    },
+
+    {
+      title: 'Busca',
+      url: '/busca',
+      icon: 'search'
+    },
+    {
+      title: 'Cadastro',
+      url:'/cadastro',
+      icon:'folder-open',
     }
   ];
 
