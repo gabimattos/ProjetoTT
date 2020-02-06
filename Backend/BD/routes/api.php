@@ -30,6 +30,7 @@ Route::post('loginUser','API\PassportController@login');
 Route::group(['middleware'=>'auth:api'],function(){
     Route::post('logoutUser','API\PassportController@logout');
     Route::post('getDetailsUser','API\PassportController@getDetails');
+    Route::put('atualizaPerfil','API\PassportController@update');
 });
 
 Route::get('visualizar/{id}','UserController@visualize');

@@ -41,6 +41,20 @@ class PassportController extends Controller
         return response()->json(['success' => $user], $this->successStatus);
     }   
 
+    public function update(Request $request){
+
+        $user = Auth::user();
+
+        if($user){
+            $user->updateProfile($request);
+            return response()->json([$user]);
+        }
+        else{
+            return response()->json(['Este usuario nao existe']);
+        }
+        
+    }
+
     public function logout(){
         $accessToken = Auth::user()->token();
         DB::table('oauth_refresh_tokens')->where('access_token_id', $accessToken->id)->update(['revoked' => true]);

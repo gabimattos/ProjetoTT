@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
                 'name' => 'required|string',
                 'password' => 'required|string',
                 'email' => 'required|email|unique:users',
-                'state_id' => 'required|number',
+                'state_id' => 'required|integer',
                 'photo' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
             ];
         }
@@ -41,6 +41,7 @@ class UserRequest extends FormRequest
         return [
             'nome.alpha' => 'O nome deve ter apenas de letras',
             'email.unique' => 'Ja existe uma conta com esse email',
+            
         ];
     }
 

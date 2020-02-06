@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\User as UserResource;
 use App\User;
@@ -29,40 +28,18 @@ class UserController extends Controller
         return response()->json(UserResource::collection([$user]));
     }
 
-    public function updateUser(UserRequest $request, $id){
+    public function updateUser(Request $request, $id){
 
         $user = User::find($id);
 
         if($user){
-            if($request->name){
-                $user->name = $request->name;
-            }
-            if($request->email){
-                $user->email = $request->email;
-            }
-            if($request->password){
-                $user->password = $request->password;
-            }
-            if($request->state_id){
-                $user->state_id = $request->state_id;
-            }
-            if($request->delivery_price){
-                $user->delivery_price = $request->delivery_price;
-            }
-            if($request->photo){
-                if(!Storage::exists('localPhotos/'))
-                    Storage::makeDirectory('localPhotos/',0775,true);
-                $file = $request->file('photo');
-                $filename = $user->id.'.'.$file->getClientOriginalExtension();
-                $path = $file->storeAs('localPhotos',$filename);
-                $user->photo = $path;
-            }
-            $user->save();
+            $user->updateProfile($request);
             return response()->json([$user]);
         }
         else{
             return response()->json(['Este usuario nao existe']);
         }
+        
     }
 
     public function deleteUser($id){
