@@ -2,11 +2,37 @@
   ion-label{
     --color:red;
   }
-  // #inputCadastro{
-  //   border-radius: 15px;
-  //   margin:3%;
-  //   border-style: solid;
-  //   height: 50px;
-  // }
+}
+  ion-toolbar{
+    --background: rgba(130, 116, 116, 0.82);
+  }
 
+.divFormulario{
+  background-color: rgba(130, 116, 116, 0.82);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  width: 80vw;
+  border-radius: 30px;
+}
+
+.inputCadastro{
+  width: 90%;
+  border-radius: 15px;
+  margin: 3%;
+  border-style: solid;
+  height: 50px;
+}
+
+.centralizar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+h2{
+  color: white;
 }

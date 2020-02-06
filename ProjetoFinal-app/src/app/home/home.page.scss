@@ -12,25 +12,118 @@
 }
 
 #imgcard1{
-  --background: url('/../../assets/imagens/caqui.pn');
+  --background: url('/../../assets/imagens/banana.jpg');
   height: 70%;
+  background-size: cover;
 }
 
 #imgcard2{
   --background: url('/../../assets/imagens/morango.jpg');
   height: 70%;
+  background-size: cover;
 }
 
 #imgcard3{
   --background: url('/../../assets/imagens/fruta.jpg');
   height: 70%;
+  background-size: cover;
 }
 
 #imgcard4{
-  --background: url('/../../assets/imagens/banana.jpg');
+  --background: url('/../../assets/imagens/laranja.jpg');
+  background-size: cover;
   height: 70%;
 }
 
+#imgcard5{
+  --background: url('/../../assets/imagens/alface.jpg');
+  height: 70%;
+  background-size: cover;
+}
+
+#imgcard6{
+  --background: url('/../../assets/imagens/tomate.jpeg');
+  height: 70%;
+  background-size: cover;
+}
+
+#imgcard7{
+  --background: url('/../../assets/imagens/cebola.jpg');
+  height: 70%;
+  background-size: cover;
+}
+
+#imgcard8{
+  --background: url('/../../assets/imagens/pepino.jpg');
+  background-size: cover;
+  height: 70%;
+}
+
+#imgcard9{
+  --background: url('/../../assets/imagens/tangerina.jpg');
+  background-size: cover;
+  height: 70%;
+}
+
+#feira1{
+  --background: url('/../../assets/imagens/feira1.jpg');
+  height: 70%;
+  background-size: cover;
+}
+
+#feira2{
+  --background: url('/../../assets/imagens/feira2.jpg');
+  height: 70%;
+  background-size: cover;
+}
+
+#feira3{
+  --background: url('/../../assets/imagens/feira3.jpg');
+  height: 70%;
+  background-size: cover;
+}
+
+#feira4{
+  --background: url('/../../assets/imagens/feira4.jpg');
+  background-size: cover;
+  height: 70%;
+}
+
+#feira5{
+  --background: url('/../../assets/imagens/feira5.jpg');
+  height: 70%;
+  background-size: cover;
+}
+
+#feira6{
+  --background: url('/../../assets/imagens/feira6.jpg');
+  height: 70%;
+  background-size: cover;
+}
+
+#feira7{
+  --background: url('/../../assets/imagens/feira7.jpeg');
+  height: 70%;
+  background-size: cover;
+}
+
+#feira8{
+  --background: url('/../../assets/imagens/feira8.jpg');
+  background-size: cover;
+  height: 70%;
+}
+
+#feira9{
+  --background: url('/../../assets/imagens/feira9.jpg');
+  background-size: cover;
+  height: 70%;
+}
+
+
+.scrollhorizontal{
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
 
 .titleCard1{
   --color: white;
