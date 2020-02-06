@@ -43,11 +43,8 @@ class UserController extends Controller
             if($request->password){
                 $user->password = $request->password;
             }
-            if($request->city){
-                $user->city = $request->city;
-            }
-            if($request->state){
-                $user->state = $request->state;
+            if($request->state_id){
+                $user->state_id = $request->state_id;
             }
             if($request->delivery_price){
                 $user->delivery_price = $request->delivery_price;

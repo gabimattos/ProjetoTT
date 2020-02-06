@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use App\Product;
 use App\Purchase;
+use App\State;
 
 class User extends Authenticatable
 {
@@ -51,12 +52,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Purchase');
     }
 
+    public function states()
+    {
+        return $this->belongsTo('App\State');
+    }
+
     public function createUser($request){
         $this->name = $request->name;
         $this->password = $request->password;
         $this->email = $request->email;
-        $this->city = $request->city;
-        $this->state = $request->state;
+        $this->state_id = $request->state_id;
         $this->save();
     }
 }

@@ -19,12 +19,15 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('city');
-            $table->string('state');
-            $table->float('delivery_price')->nullable();
+            $table->unsignedBigInteger('state_id');
+            $table->integer('delivery_price')->default('8');
             $table->string('photo')->nullable();
             $table->rememberToken();
             $table->timestamps();
+        });
+
+        Schema::table('users', function(Blueprint $table){
+            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
         });
     }
 

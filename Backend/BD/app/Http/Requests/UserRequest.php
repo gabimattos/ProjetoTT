@@ -31,8 +31,7 @@ class UserRequest extends FormRequest
                 'name' => 'required|string',
                 'password' => 'required|string',
                 'email' => 'required|email|unique:users',
-                'city' => 'required|string',
-                'state' => 'required|string',
+                'state_id' => 'required|number',
                 'photo' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
             ];
         }

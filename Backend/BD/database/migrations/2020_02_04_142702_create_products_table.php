@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->float('price');
+            $table->string('photo');
             $table->unsignedBigInteger('seller_id');
             $table->longText('description')->nullable();
             $table->integer('quantity');
@@ -26,7 +27,7 @@ class CreateProductsTable extends Migration
 
         Schema::table('products', function(Blueprint $table){
             $table->foreign('seller_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('set null');
         });
     }
 

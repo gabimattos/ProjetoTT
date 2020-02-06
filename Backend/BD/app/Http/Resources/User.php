@@ -3,6 +3,8 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
+use App\State;
 
 class User extends JsonResource
 {
@@ -18,6 +20,8 @@ class User extends JsonResource
             'id'=>$this->id,
             'name'=>$this->name,
             'email'=>$this->email,
+            'state'=>State::findOrFail($this->state_id),
+            'photo'=>Storage::download($this->photo),
         ];
     }
 }
