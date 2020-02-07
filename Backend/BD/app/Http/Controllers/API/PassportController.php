@@ -6,12 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\User;
+use App\Product;
 use Auth;
 use DB;
 
 class PassportController extends Controller
 {
     public $successStatus = 200;
+
+    //User
 
     public function registerUser(UserRequest $request){
         $newUser = new User;
@@ -68,4 +71,31 @@ class PassportController extends Controller
         $accessToken->revoke();
         return response()->json(null,204);
     }
+
+    //Product
+
+    public function registerProduct(Request $request){
+        $user = Auth::user();
+        $product = new Product;
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->quantity = $request->quantity;
+        if(!Storage::exists('localPhotos/'))
+                Storage::makeDirectory('localPhotos/',0775,true);
+            $file = $request->file('photo');
+            $filename = $product->id.'.'.$file->getClientOriginalExtension();
+            $path = $file->storeAs('localPhotos',$filename);
+            $product->photo = $path;
+        if($request->description){
+            $product->description = $request->description;
+        }
+        if($request->type){
+            $product->type = $request->type;
+        }
+        $product->seller_id = $user->id;
+        $product->save();
+        return response()->json(['Produto criado com sucesso!']);
+    }
+
+    
 }

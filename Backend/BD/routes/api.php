@@ -24,7 +24,7 @@ Route::put('atualizaUser/{id}','UserController@updateUser');
 Route::delete('deletaUser/{id}','UserController@deleteUser');
 
 
-//User Essas
+//Autenticado 
 Route::post('registraUser','API\PassportController@registerUser');
 Route::post('loginUser','API\PassportController@login');
 
@@ -32,6 +32,7 @@ Route::group(['middleware'=>'auth:api'],function(){
     Route::post('logoutUser','API\PassportController@logout');
     Route::post('getDetailsUser','API\PassportController@getDetails');
     Route::put('atualizaPerfil','API\PassportController@update');
+    Route::post('registraProduct', 'API\PassportController@registerProduct');
 });
 
 Route::get('visualizar/{id}','UserController@visualize');
