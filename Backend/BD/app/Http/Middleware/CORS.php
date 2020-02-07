@@ -15,10 +15,10 @@ class CORS
      */
     public function handle($request, Closure $next) {
         $resposta = $next($request);
-        $resposta ->header('Access-Control-Allow-Origin' , 'Endereço do Front')
+        $resposta ->header('Access-Control-Allow-Origin' , '*')
         ->header('Access-Control-Allow-Methods' , 'GET, POST, PUT, DELETE, OPTIONS' )
         ->header('Access-Control-Allow-Headers' , 'Authorization, Content-Type' );
-        return $resposta ;
+        return $resposta;
         }
         
 }

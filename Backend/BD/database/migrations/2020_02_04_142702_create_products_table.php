@@ -21,13 +21,12 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('seller_id');
             $table->longText('description')->nullable();
             $table->integer('quantity');
-            $table->unsignedBigInteger('type_id')->nullable();
+            $table->string('type')->nullable();
             $table->timestamps();
         });
 
         Schema::table('products', function(Blueprint $table){
             $table->foreign('seller_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('type_id')->references('id')->on('types')->onDelete('set null');
         });
     }
 

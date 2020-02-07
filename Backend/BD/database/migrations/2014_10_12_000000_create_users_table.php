@@ -19,16 +19,20 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedBigInteger('state_id');
+            $table->string('state');
             $table->integer('delivery_price')->default('8');
-            $table->string('photo')->nullable();
+            $table->string('photo')->default('storage/localPhotos/PerfilDefault.png');
+            $table->boolean('admin')->default('0');
+            $table->boolean('seller')->nullable();
+            $table->string('store_name')->nullable();
+            $table->string('CNPJ')->nullable();
+            $table->string('product_type')->nullable();
+            $table->longText('description')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
 
-        Schema::table('users', function(Blueprint $table){
-            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
-        });
+        
     }
 
     /**

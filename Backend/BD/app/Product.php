@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Purchase;
-use App\Type;
 
 class Product extends Model
 {
@@ -14,10 +13,6 @@ class Product extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function types()
-    {
-        return $this->belongsTo('App\Type');
-    }
     
     public function purchases()
     {

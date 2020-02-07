@@ -15,16 +15,23 @@ class PassportController extends Controller
 
     public function registerUser(UserRequest $request){
         $newUser = new User;
+        
         $newUser->name = $request->name;
         $newUser->email = $request->email;
         $newUser->password = bcrypt($request->password);
-        $newUser->state_id = $request->state_id;
+        $newUser->state = $request->state; 
+        if($newUser->seller == True){
+            $newUser->store_name = $request->store_name;
+            $newUser->CNPJ = $request->CNPJ;
+            $newUser->product_type = $request->product_type;
+            $newUser->description = $request->description;
+        }
         $newUser->save();
         $success['token'] = $newUser->createToken('MyApp')->accessToken;
         $success['name'] = $newUser->name;
         return response()->json(['success' => $success], $this->successStatus);
-    }
-
+    } 
+   
     public function login(){
         if(Auth::attempt(['email' => request('email'),'password' => request('password')])){
             $user = Auth::user();

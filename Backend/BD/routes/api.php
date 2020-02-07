@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+//Opcional 
 Route::get('listaUsers','UserController@listUser');
 Route::get('mostraUser/{id}','UserController@showUser');
 Route::post('criaUser','UserController@storeUser');
@@ -24,6 +24,7 @@ Route::put('atualizaUser/{id}','UserController@updateUser');
 Route::delete('deletaUser/{id}','UserController@deleteUser');
 
 
+//User Essas
 Route::post('registraUser','API\PassportController@registerUser');
 Route::post('loginUser','API\PassportController@login');
 
