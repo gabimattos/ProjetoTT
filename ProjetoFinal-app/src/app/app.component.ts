@@ -46,8 +46,13 @@ export class AppComponent {
     {
       title: 'Cadastro',
       url:'/cadastro',
-      icon:'folder-open',
-    }
+      icon:'folder-open'
+    },
+    {
+      title: 'Perfil Usuario',
+      url:'/perfil-usuario',
+      icon:'person-circle-outline'
+    },
   ];
 
   constructor(

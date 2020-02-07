@@ -1,0 +1,17 @@
+ion-toolbar{
+	--background: rgba(130, 116, 116, 0.82);
+}
+ion-content.fundo{
+	--background: url('../../../assets/imagens/fundoFrutas.jpg') 100% 100% no-repeat;
+}
+.containerPerfil{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 60vh;
+}
+ion-avatar.avatar{
+	width: 35%;
+	height: auto;
+}
