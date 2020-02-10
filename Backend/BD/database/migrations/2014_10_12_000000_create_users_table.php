@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedBigInteger('state_id');
+            $table->string('state')->default('estado');
             $table->integer('delivery_price')->default('8');
             $table->string('photo')->nullable();
             $table->rememberToken();
