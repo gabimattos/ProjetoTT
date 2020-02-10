@@ -62,4 +62,6 @@ export class CadastroPage implements OnInit {
   ngOnInit() {
   }
 
+  
+
 }

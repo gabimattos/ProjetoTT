@@ -34,7 +34,7 @@ const routes: Routes = [
     path: 'intro',
     loadChildren: () => import('./intro/intro.module').then( m => m.IntroPageModule)
   },
-  
+
   {
     path: 'cadastro-vendedor',
     loadChildren: () => import('./cadastro-vendedor/cadastro-vendedor.module').then( m => m.CadastroVendedorPageModule)
