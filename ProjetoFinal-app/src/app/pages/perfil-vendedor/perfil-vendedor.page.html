@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="VaipraHome()" >
+      <ion-icon  name="arrow-back"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<div class="centralizar">
+
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size=5>
+
+        <ion-avatar class="avatar">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size=6>
+        <h1>Fulano de Tal</h1>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <div class="">
+    <p>Rio de Janeiro</p>
+    <p>Vende 123 produtos</p>
+    <p>Avaliação: 4,5</p>
+  </div>
+
+</div>
+
+<div *ngIf= "dadosPerfil.typeuser" class="vendedor">
+
+
+<ion-fab (click)="VaipraCadastroProduto()" vertical="center" horizontal="end" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="add"> </ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-grid>
+  <ion-row>
+
+  <h1>Meus Produtos</h1>
+
+  <ion-slides  [options]="slideOpts">
+
+    <ion-slide>
+
+      <ion-card class="cardhome">
+        <ion-card-header id="imgcard1" > </ion-card-header>
+        <ion-card-content > Banana</ion-card-content>
+      </ion-card>
+
+      <ion-card class="cardhome">
+        <ion-card-header id="imgcard2" > </ion-card-header>
+        <ion-card-content > Morango </ion-card-content>
+      </ion-card>
+
+      <ion-card class="cardhome">
+        <ion-card-header id="imgcard3" > </ion-card-header>
+        <ion-card-content > Melancia </ion-card-content>
+      </ion-card>
+
+  </ion-slide>
+
+  <ion-slide>
+
+    <ion-card class="cardhome">
+      <ion-card-header id="imgcard4" > </ion-card-header>
+      <ion-card-content > Laranja </ion-card-content>
+    </ion-card>
+
+    <ion-card class="cardhome">
+      <ion-card-header id="imgcard5" > </ion-card-header>
+      <ion-card-content > Alface </ion-card-content>
+    </ion-card>
+
+    <ion-card class="cardhome">
+      <ion-card-header id="imgcard6" > </ion-card-header>
+      <ion-card-content >Tomate</ion-card-content>
+    </ion-card>
+
+  </ion-slide>
+
+  <ion-slide>
+
+    <ion-card class="cardhome">
+      <ion-card-header id="imgcard7" > </ion-card-header>
+      <ion-card-content > Cebola </ion-card-content>
+    </ion-card>
+
+    <ion-card class="cardhome">
+      <ion-card-header id="imgcard8" > </ion-card-header>
+      <ion-card-content > Pepino </ion-card-content>
+    </ion-card>
+
+    <ion-card class="cardhome">
+      <ion-card-header id="imgcard9" > </ion-card-header>
+      <ion-card-content > Tangerina </ion-card-content>
+    </ion-card>
+
+
+  </ion-slide>
+</ion-slides>
+
+</ion-row>
+
+</ion-grid>
+
+</div>
+
+
+
+</ion-content>

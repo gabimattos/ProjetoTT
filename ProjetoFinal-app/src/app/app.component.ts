@@ -16,17 +16,17 @@ export class AppComponent {
       url: '/intro',
 
     },
-
     {
       title: 'Home',
       url: '/home',
       icon: 'home'
     },
     {
-      title: 'Produto',
-      url: '/produto',
-
+    title: 'Perfil',
+    url: '/perfil-vendedor',
+    icon: 'person'
     },
+
     {
       title: 'Login',
       url: '/login',
@@ -37,17 +37,18 @@ export class AppComponent {
       url: '/home-logado',
       icon: 'home'
     },
-
     {
       title: 'Busca',
       url: '/busca',
       icon: 'search'
     },
+
     {
-      title: 'Cadastro',
-      url:'/cadastro',
-      icon:'folder-open',
-    }
+      title: 'Produto',
+      url: '/produto',
+
+    },
+
   ];
 
   constructor(

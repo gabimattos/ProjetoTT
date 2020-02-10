@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="VaiproCadastro()" >
+      <ion-icon  name="arrow-back"></ion-icon>
+    </ion-button>
+    <!-- <ion-title>Cadastro</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fundo">
+
+  <div class="centralizar">
+    <form [formGroup] = "registerVendedorForm" (ngSubmit) = "submitForm(registerVendedorForm)">
+
+      <div class="divFormulario">
+
+        <h2>Cadastro Vendedor</h2>
+
+        <ion-item class="inputCadastroV">
+          <ion-input type="text" formControlName="comercialName" placeholder="Nome Comercial" ></ion-input>
+        </ion-item>
+
+        <ion-item class="inputCadastroV">
+          <ion-input type="text" formControlName="cnpj" placeholder="CNPJ" ></ion-input>
+        </ion-item>
+
+        <ion-item class="inputCadastroV">
+          <ion-input type="text" formControlName="description" placeholder="Descrição produtos" ></ion-input>
+        </ion-item>
+
+        <ion-item class="inputCadastroV">
+          <ion-input type="text" formControlName="email" placeholder="Email" ></ion-input>
+        </ion-item>
+
+        <ion-item class="inputCadastroV">
+          <ion-input type="text" formControlName="password" placeholder="Senha" ></ion-input>
+        </ion-item>
+
+      </div>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-button (click)="VaiproLogin()" type="submit" color="primary" shape="round" >Cadastrar</ion-button>
+      </ion-row>
+
+    </form>
+
+  </div>
+
+
+
+</ion-content>

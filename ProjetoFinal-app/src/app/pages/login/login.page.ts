@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, ReactiveFormsModule, FormsModule  } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,24 +13,39 @@ export class LoginPage implements OnInit {
 
 
 
-  constructor(public formBuilder: FormBuilder, private router: Router) {
+  constructor(public formBuilder: FormBuilder, private router: Router, public authService: AuthService) {
     this.loginForm =  this.formBuilder.group({
-       email: ['email', Validators.required],
-       password: ['password', Validators.required]
+       email: [null, [Validators.required]],
+       password: [null, [Validators.required]]
      });
    }
 
   ngOnInit() {
   }
 
-  logarUsuario(form){
-    console.log(form);
+  logarUsuario( loginForm ) {
+
+
+    if ( loginForm.status == "VALID" ) {
+      this.authService.loginUsuario( loginForm.value ).subscribe(
+        (res) => {
+          console.log( res.message );
+          this.router.navigate(['home-logado']);
+        }
+      );
+
+    }
 
   }
-  goToCadastro(){
+  VaiproCadastro(){
      this.router.navigate(['/cadastro']);
   }
-  botaoVoltar(){
+
+  VaiproCadastroVendedor(){
+    this.router.navigate(['/cadastro-vendedor']);
+  }
+
+  VaipraHome(){
     this.router.navigate(['/home']);
   }
 

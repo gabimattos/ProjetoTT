@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="VaiproPerfil()" >
+      <ion-icon  name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="centralizar">
+    <form [formGroup]="registerProdutoForm" (ngSubmit)="registrarProduto(registerProdutoForm)">
+
+      <div class="divFormulario">
+
+        <h2>Cadastro Produto</h2>
+
+        <ion-item class="inputProduto">
+          <ion-input type="text" formControlName = "productName" placeholder="Nome do Produto" ></ion-input>
+        </ion-item>
+
+        <ion-item class="inputProduto">
+          <ion-input type="text" formControlName="quantity" placeholder="Quantidade em estoque" ></ion-input>
+        </ion-item>
+
+        <ion-item class="inputProduto">
+          <ion-input type="text" formControlName="price" placeholder="Preço/Kg" ></ion-input>
+        </ion-item>
+
+        <ion-item class="inputProduto">
+          <ion-input type="text" formControlName="description" placeholder="Quantidade mínina" ></ion-input>
+        </ion-item>
+
+      </div>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-button  type="submit" color="primary" shape="round" >Adicionar Produto</ion-button>
+      </ion-row>
+
+    </form>
+
+  </div>
+
+
+</ion-content>

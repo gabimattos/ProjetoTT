@@ -1,0 +1,18 @@
+ion-toolbar{
+  --background: rgba(130, 116, 116, 0.82);
+}
+
+.imgProduto{
+  width: 100vw;
+  height: 40vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.informacoes{
+  background-color: white;
+  width: 70vw;
+
+  color: black;
+}

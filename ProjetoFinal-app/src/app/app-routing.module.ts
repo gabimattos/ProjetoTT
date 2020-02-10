@@ -34,10 +34,24 @@ const routes: Routes = [
     path: 'intro',
     loadChildren: () => import('./intro/intro.module').then( m => m.IntroPageModule)
   },
+  
+  {
+    path: 'cadastro-vendedor',
+    loadChildren: () => import('./cadastro-vendedor/cadastro-vendedor.module').then( m => m.CadastroVendedorPageModule)
+  },
+  {
+    path: 'cadastro-produto',
+    loadChildren: () => import('./pages/cadastro-produto/cadastro-produto.module').then( m => m.CadastroProdutoPageModule)
+  },
+  {
+    path: 'perfil-vendedor',
+    loadChildren: () => import('./pages/perfil-vendedor/perfil-vendedor.module').then( m => m.PerfilVendedorPageModule)
+  },
   {
     path: 'produto',
-    loadChildren: () => import('./produto/produto.module').then( m => m.ProdutoPageModule)
-  }
+    loadChildren: () => import('./pages/produto/produto.module').then( m => m.ProdutoPageModule)
+  },
+
 
 
 ];

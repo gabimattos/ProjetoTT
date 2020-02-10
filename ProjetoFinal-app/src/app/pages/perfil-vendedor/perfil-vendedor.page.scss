@@ -1,0 +1,73 @@
+ion-toolbar{
+  --background: rgba(130, 116, 116, 0.82);
+}
+
+.avatar{
+  width: 35vw;
+  height: 20vh;
+}
+
+#imgcard1{
+  --background: url('/../../assets/imagens/banana.jpg');
+  height: 70%;
+  background-size: cover;
+}
+
+#imgcard2{
+  --background: url('/../../assets/imagens/morango.jpg');
+  height: 70%;
+  background-size: cover;
+}
+
+#imgcard3{
+  --background: url('/../../assets/imagens/fruta.jpg');
+  height: 70%;
+  background-size: cover;
+}
+
+#imgcard4{
+  --background: url('/../../assets/imagens/laranja.jpg');
+  background-size: cover;
+  height: 70%;
+}
+
+#imgcard5{
+  --background: url('/../../assets/imagens/alface.jpg');
+  height: 70%;
+  background-size: cover;
+}
+
+#imgcard6{
+  --background: url('/../../assets/imagens/tomate.jpeg');
+  height: 70%;
+  background-size: cover;
+}
+
+#imgcard7{
+  --background: url('/../../assets/imagens/cebola.jpg');
+  height: 70%;
+  background-size: cover;
+}
+
+#imgcard8{
+  --background: url('/../../assets/imagens/pepino.jpg');
+  background-size: cover;
+  height: 70%;
+}
+
+#imgcard9{
+  --background: url('/../../assets/imagens/tangerina.jpg');
+  background-size: cover;
+  height: 70%;
+}
+
+.cardhome{
+  width: 36vw;
+  height: 23vh;
+  background-color: white;
+
+}
+
+  h1{
+    color:white;
+  }

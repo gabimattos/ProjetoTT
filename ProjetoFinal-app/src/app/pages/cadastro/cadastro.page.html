@@ -3,36 +3,33 @@
     <ion-button (click)="VaipraHome()" >
       <ion-icon  name="arrow-back"></ion-icon>
     </ion-button>
-    <!-- <ion-title>Cadastro</ion-title> -->
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="fundo">
 
   <div class="centralizar">
-      <form [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm)">
+      <form [formGroup]="registerForm" (ngSubmit)="registrarUsuario (registerForm)">
         <div class="divFormulario">
           <h2>Cadastro</h2>
 
           <ion-item class="inputCadastro" [class.invalid]="registerForm.controls.name.invalid && registerForm.controls.name.touched">
-            <!-- <ion-label position = "floating"> Nome </ion-label> -->
             <ion-input type="text" placeholder="Nome" formControlName="name"></ion-input>
           </ion-item>
 
           <ion-item class="inputCadastro" [class.invalid]="registerForm.controls.email.invalid && registerForm.controls.email.touched">
-            <!-- <ion-label position="floating">Email</ion-label> -->
             <ion-input type="email" placeholder="E-mail" formControlName="email"> </ion-input>
           </ion-item>
 
           <ion-item class="inputCadastro" [class.invalid]="registerForm.controls.password.invalid && registerForm.controls.password.touched">
-            <!-- <ion-label position="floating">Senha</ion-label> -->
             <ion-input type="password" placeholder="Senha" formControlName="password"> </ion-input>
           </ion-item>
 
           <ion-item class="inputCadastro" >
-            <!-- <ion-label position="floating">Estado:</ion-label> -->
-            <!-- <ion-input type="text" placeholder="Estado" formControlName="estate" > </ion-input> -->
-            <ion-select  placeholder="Insira seu estado" >
+
+
+              <ion-select formControlName="state" placeholder="Insira seu estado" >
               <ion-select-option value="acre">Acre</ion-select-option>
               <ion-select-option value="alagoas">Alagoas</ion-select-option>
               <ion-select-option value="amapa">Amapá</ion-select-option>
@@ -64,11 +61,33 @@
             </ion-select>
           </ion-item>
 
+
+
+          <ion-list   class="ion-margin-top" >
+            <ion-radio-group formControlName="typeuser">
+              <ion-list-header>
+                <ion-label> Tipo de Usuário </ion-label>
+              </ion-list-header>
+
+              <ion-item>
+                <ion-label>Comprador</ion-label>
+                <ion-radio slot="start" value="false"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Vendedor</ion-label>
+                <ion-radio slot="start" value="true"></ion-radio>
+              </ion-item>
+
+            </ion-radio-group>
+          </ion-list>
+
         </div>
 
         <ion-row class="ion-justify-content-center">
-          <ion-button (click)="VaiproLogin()" type="submit" color="success" shape="round" [disabled]="registerForm.invalid">Cadastrar</ion-button>
+          <ion-button (click)="VaiproLogin()" type="submit" color="primary" shape="round" [disabled]="registerForm.invalid">Cadastrar</ion-button>
         </ion-row>
+
 
       </form>
 

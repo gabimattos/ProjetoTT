@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button (click)="botaoVoltar()">
+    <ion-button (click)="VaipraHome()">
       <ion-icon name="arrow-back"></ion-icon>
     </ion-button>
   </ion-toolbar>
@@ -19,8 +19,15 @@
     </div>
       <ion-row>
         <ion-button type="submit" color="primary" shape="round" [disabled]="loginForm.invalid">Entrar</ion-button>
-        <ion-button (click)="goToCadastro()" color="primary" shape="round">Cadastrar</ion-button>
       </ion-row>
+
+      <ion-row>
+        <ion-button (click)="VaiproCadastro()" color="primary" shape="round">Cadastrar como Usuário</ion-button>
+      </ion-row>
+
+      <!-- <ion-row>
+        <ion-button (click)="VaiproCadastroVendedor()" color="primary" shape="round">Cadastrar como Vendedor</ion-button>
+      </ion-row> -->
   </form>
   </div>
 </ion-content>

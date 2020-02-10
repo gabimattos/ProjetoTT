@@ -1,0 +1,26 @@
+#col1{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+
+  border-style:groove;
+}
+
+#col2{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+
+#col3{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:start;
+}
+
+#shopp {
+  font-size: 32px;
+}
