@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button (click)="VaipraHome()" >
+    <ion-button (click)="VaipraHomeLogado()" >
       <ion-icon  name="arrow-back"></ion-icon>
     </ion-button>
 
@@ -25,21 +25,21 @@
 
     <ion-row class="ion-justify-content-center">
       <ion-col size=6>
-        <h1>Fulano de Tal</h1>
       </ion-col>
     </ion-row>
 
   </ion-grid>
 
   <div class="">
-    <p>Rio de Janeiro</p>
+    <p>{{username}}</p>
+    <p>{{userplace}}</p>
     <p>Vende 123 produtos</p>
     <p>Avaliação: 4,5</p>
   </div>
 
 </div>
 
-<div *ngIf= "dadosPerfil.typeuser" class="vendedor">
+<div *ngIf="typecompare" class="vendedor">
 
 
 <ion-fab (click)="VaipraCadastroProduto()" vertical="center" horizontal="end" slot="fixed">
@@ -50,6 +50,8 @@
 
 <ion-grid>
   <ion-row>
+
+
 
   <h1>Meus Produtos</h1>
 

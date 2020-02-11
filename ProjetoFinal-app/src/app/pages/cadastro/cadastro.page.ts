@@ -38,8 +38,6 @@ export class CadastroPage implements OnInit {
 
   registrarUsuario( registerForm ) {
 
-
-
     if ( registerForm.status == "VALID" ) {
       console.log(registerForm);
       this.authService.cadastroUsuario( registerForm.value ).subscribe(
@@ -62,6 +60,6 @@ export class CadastroPage implements OnInit {
   ngOnInit() {
   }
 
-  
+
 
 }

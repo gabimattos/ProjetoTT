@@ -20,13 +20,25 @@ export class AuthService {
     return this.http.post(this.apiURL + 'registraUser', form, this.httpHeaders);
   }
 
-  // cadastroVendedor(form):Observable<any>{
-  //   return this.http.post(this.apiURL + 'registraUser', form, this.httpHeaders);
-  // }
+
 
   loginUsuario(form):Observable<any>{
     return this.http.post(this.apiURL + 'loginUser', form, this.httpHeaders);
   }
+
+  logoutUser(): Observable<any> {
+
+        this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem('userToken');
+
+        console.log(this.httpHeaders);
+
+        return this.http.get(this.apiURL + 'logoutUser', this.httpHeaders);
+
+    }
+
+    getUser(id: any): Observable<any> {
+        return this.http.get(this.apiURL + 'userProdutos/' + id);
+    }
 
 
     constructor(public http: HttpClient) { }

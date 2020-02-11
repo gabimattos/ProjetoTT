@@ -32,11 +32,7 @@ export class AppComponent {
       url: '/login',
       icon: 'person-add'
     },
-    {
-      title: 'Home Logado',
-      url: '/home-logado',
-      icon: 'home'
-    },
+
     {
       title: 'Busca',
       url: '/busca',
