@@ -13,7 +13,8 @@ import { ProdutoPage } from './produto.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ProdutoPageRoutingModule
+    ProdutoPageRoutingModule,
+    // ToastController
   ],
   declarations: [ProdutoPage]
 })

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {AuthProductService} from  '../../services/auth-product.service';
-// import {ActivateRoute} from '@angular/router';
-import {HomeLogadoPage} from '../home-logado/home-logado.page';
+import {ActivateRoute} from '@angular/router';
+import { HomeLogadoPage } from '../home-logado/home-logado.page';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-produto',
@@ -19,13 +20,16 @@ export class ProdutoPage implements OnInit {
       productQuantity;
 
 
-  constructor(private router:Router, public productService: AuthProductService) {
+  constructor(private router:Router, public productService: AuthProductService, public toastController: ToastController) {}
 
-        this.getInformacoes(8);
-        // this.Produtoid=this.router.snapshot.params["Produtoid"];
-  }
+async presentToast() {
 
-
+    const toast = await this.toastController.create({
+      message: 'Sua compra foi realizada com sucesso!',
+      duration: 2000
+    });
+    toast.present();
+}
 
   getInformacoes(id){
 
@@ -43,8 +47,9 @@ export class ProdutoPage implements OnInit {
 
 }
 
-VaipraHome(){
-  this.router.navigate(['/home']);
+
+VaipraHomeLogado(){
+  this.router.navigate(['/home-logado']);
 }
 
   ngOnInit() {

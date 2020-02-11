@@ -56,5 +56,8 @@ export class HomeLogadoPage implements OnInit {
   VaiproBuscar(){
     this.router.navigate(['/busca']);
   }
+  VaiproProduto(){
+    this.router.navigate(['/produto']);
+  }
 
 }
