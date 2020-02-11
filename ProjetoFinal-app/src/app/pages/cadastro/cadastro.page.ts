@@ -42,7 +42,6 @@ export class CadastroPage implements OnInit {
 
     if ( registerForm.status == "VALID" ) {
       console.log(registerForm);
-      registerForm.value.state_id =3;
       this.authService.cadastroUsuario( registerForm.value ).subscribe(
         (res) => {
           console.log(res);

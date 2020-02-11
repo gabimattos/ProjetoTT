@@ -2,6 +2,14 @@ ion-toolbar{
   --background: rgba(130, 116, 116, 0.82);
 }
 
+.containerPerfil{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+}
+
 .avatar{
   width: 35vw;
   height: 20vh;
