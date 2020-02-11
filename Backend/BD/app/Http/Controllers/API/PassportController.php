@@ -18,17 +18,25 @@ class PassportController extends Controller
         $newUser->name = $request->name;
         $newUser->email = $request->email;
         $newUser->password = bcrypt($request->password);
-        $newUser->state_id = $request->state_id;
+        $newUser->typeuser = $request->typeuser;
+        $newUser->state = $request->state;
+        // $newUser->state_id = $request->state_id;
         $newUser->save();
         $success['token'] = $newUser->createToken('MyApp')->accessToken;
         $success['name'] = $newUser->name;
+        $success['email'] = $newUser->email;
         return response()->json(['success' => $success], $this->successStatus);
     }
 
+
+
     public function login(){
+
         if(Auth::attempt(['email' => request('email'),'password' => request('password')])){
             $user = Auth::user();
             $success['token'] = $user -> createToken('MyApp')->accessToken;
+            $success['user'] = $user;
+
             return response()->json(['success' => $success], $this->successStatus);
         }
         else{
@@ -39,7 +47,7 @@ class PassportController extends Controller
     public function getDetails(){
         $user = Auth::user();
         return response()->json(['success' => $user], $this->successStatus);
-    }   
+    }
 
     public function update(Request $request){
 
@@ -52,7 +60,7 @@ class PassportController extends Controller
         else{
             return response()->json(['Este usuario nao existe']);
         }
-        
+
     }
 
     public function logout(){
@@ -60,5 +68,17 @@ class PassportController extends Controller
         DB::table('oauth_refresh_tokens')->where('access_token_id', $accessToken->id)->update(['revoked' => true]);
         $accessToken->revoke();
         return response()->json(null,204);
+    }
+
+    public function postarProduto($produto_id){
+      $user=Auth::user();
+      $produto=Produto::where('id', '$produto_id');
+
+      if(typeuser=="true"){
+          $produto->user_id=$user->id;
+          $produto->save();
+      }
+      return response() -> json('Adicionado');
+
     }
 }

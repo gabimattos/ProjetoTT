@@ -14,7 +14,7 @@ use App\State;
 class User extends Authenticatable
 {
     use Notifiable;
-    use HasApiTokens; 
+    use HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -47,7 +47,7 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Product');
     }
-    
+
     public function purchases()
     {
         return $this->hasMany('App\Purchase');
@@ -62,7 +62,8 @@ class User extends Authenticatable
         $this->name = $request->name;
         $this->password = $request->password;
         $this->email = $request->email;
-        $this->state_id = $request->state_id;
+        $this->state = $request->state;
+        $this->typeuser = $request->typeuser;
         $this->save();
     }
 
@@ -77,11 +78,9 @@ class User extends Authenticatable
             $this->password = $request->password;
         }
         if($request->state_id){
-            $this->state_id = $request->state_id;
+            $this->state = $request->state;
         }
-        if($request->delivery_price){
-            $this->delivery_price = $request->delivery_price;
-        }
+
         if($request->photo){
             if(!Storage::exists('localPhotos/'))
                 Storage::makeDirectory('localPhotos/',0775,true);

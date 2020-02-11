@@ -16,13 +16,13 @@ class User extends JsonResource
      */
     public function toArray($request)
     {
-        $state = State::findOrFail($this->state_id);
+        // $state = State::findOrFail($this->state_id);
 
         return[
             'id'=>$this->id,
             'name'=>$this->name,
             'email'=>$this->email,
-            'state'=>$state->name,
+            // 'state'=>$state->name,
         ];
     }
 }

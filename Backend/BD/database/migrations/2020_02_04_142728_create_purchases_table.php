@@ -16,7 +16,7 @@ class CreatePurchasesTable extends Migration
         Schema::create('purchases', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('seller_id');
+
             $table->unsignedBigInteger('user_id');
             $table->integer('quantity');
             $table->float('value');
@@ -27,7 +27,7 @@ class CreatePurchasesTable extends Migration
         Schema::table('purchases', function(Blueprint $table){
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('seller_id')->references('seller_id')->on('products')->onDelete('cascade');
+            
         });
     }
 

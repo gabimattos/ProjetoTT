@@ -28,19 +28,6 @@ class UserController extends Controller
         return response()->json(UserResource::collection([$user]));
     }
 
-    public function updateUser(Request $request, $id){
-
-        $user = User::find($id);
-
-        if($user){
-            $user->updateProfile($request);
-            return response()->json([$user]);
-        }
-        else{
-            return response()->json(['Este usuario nao existe']);
-        }
-        
-    }
 
     public function deleteUser($id){
         $user = User::findOrFail($id);
@@ -52,5 +39,10 @@ class UserController extends Controller
     public function visualize($id){
         $user = User::findOrFail($id);
         return Storage::download($user->photo);
+    }
+    
+    public function userProducts($id) {
+        $user = User::with('products')->find($id);
+        return $user;
     }
 }
