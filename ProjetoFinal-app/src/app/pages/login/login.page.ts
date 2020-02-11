@@ -29,8 +29,11 @@ export class LoginPage implements OnInit {
     if ( loginForm.status == "VALID" ) {
       this.authService.loginUsuario( loginForm.value ).subscribe(
         (res) => {
-          console.log( res.message );
-          this.router.navigate(['home-logado']);
+          console.log( res );
+          localStorage.setItem('userToken', res.success.token);
+          localStorage.setItem('Usuario', JSON.stringify(res.success.user));
+          this.router.navigate(['home-logado', {id:res.success.user.id}]);
+
         }
       );
 

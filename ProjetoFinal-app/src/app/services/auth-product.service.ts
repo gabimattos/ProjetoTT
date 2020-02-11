@@ -12,13 +12,25 @@ export class AuthProductService {
   httpHeaders: any= {
     headers:{
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      'Accept': 'application/json',
+      'Authorization': 'Bearer '
     }
   }
 
   cadastroProduto(form):Observable<any>{
+    this.httpHeaders.headers["Authorization"] = "Bearer" + localStorage.getItem('userToken');
     return this.http.post(this.apiURL + 'criaProduto', form, this.httpHeaders);
   }
+
+  retornaInformacoes(id):Observable<any>{
+    return this.http.get(this.apiURL + 'criaProduto/' +id, this.httpHeaders);
+  }
+
+  getProduct(id: any): Observable<any> {
+      return this.http.get(this.apiURL + 'mostraProduto/' + id, this.httpHeaders);
+  }
+
+
 
   constructor(public http: HttpClient) { }
 }
