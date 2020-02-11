@@ -27,6 +27,7 @@ export class CadastroProdutoPage implements OnInit {
  }
 
 registrarProduto(form){
+
   this.authproductService.cadastroProduto( form.value ).subscribe(
     (res) => {
       console.log(res);

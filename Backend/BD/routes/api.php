@@ -21,6 +21,7 @@ Route::get('listaUsers','UserController@listUser');
 Route::get('mostraUser/{id}','UserController@showUser');
 Route::get('userProdutos/{id}', 'UserController@userProducts');
 
+
 Route::put('atualizaUser/{id}','UserController@updateUser');
 Route::delete('deletaUser/{id}','UserController@deleteUser');
 // Route::post('criaUser','UserController@storeUser');
