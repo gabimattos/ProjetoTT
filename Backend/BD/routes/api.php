@@ -35,7 +35,7 @@ Route::get('mostraProduto/{id}', 'ProductController@showProduct');
 
 
 Route::group(['middleware'=>'auth:api'],function(){
-    Route::post('logoutUser','API\PassportController@logout');
+    Route::get('logoutUser','API\PassportController@logout');
     Route::post('getDetailsUser','API\PassportController@getDetails');
     Route::put('atualizaPerfil','API\PassportController@update');
 });

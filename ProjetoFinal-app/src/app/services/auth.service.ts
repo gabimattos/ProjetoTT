@@ -28,10 +28,10 @@ export class AuthService {
 
   logoutUser(): Observable<any> {
 
-        this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem('userToken');
+    console.log('flag2');
 
+        this.httpHeaders.headers['Authorization'] = 'Bearer ' + localStorage.getItem('userToken');
         console.log(this.httpHeaders);
-
         return this.http.get(this.apiURL + 'logoutUser', this.httpHeaders);
 
     }

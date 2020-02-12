@@ -7,16 +7,42 @@
         </ion-toolbar>
       </ion-header>
       <ion-content class="menu">
-        <ion-list >
-          <ion-menu-toggle  auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
-                {{p.title}}
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
+
+        <div *ngIf="checktoken()">
+
+          <ion-list >
+            <ion-menu-toggle  auto-hide="false" *ngFor="let p of appPages">
+              <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+                <ion-icon slot="start" [name]="p.icon"></ion-icon>
+
+                <ion-label>
+                <p *ngIf= " p.title =='Sair' " (click)="logout()"> {{p.title}}</p>
+                <p *ngIf= " p.title !='Sair' ">{{p.title}}</p>
+                </ion-label>
+
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+
+        </div>
+
+        <div *ngIf = "!checktoken()">
+
+          <ion-list>
+            <ion-menu-toggle  auto-hide="false" *ngFor="let h of pagesHome">
+              <ion-item [routerDirection]="'root'" [routerLink]="[h.url]">
+                <ion-icon slot="start" [name]="h.icon"></ion-icon>
+
+                <ion-label>
+                  {{h.title}}
+                </ion-label>
+
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+
+        </div>
+
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>

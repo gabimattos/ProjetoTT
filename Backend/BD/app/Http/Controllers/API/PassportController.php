@@ -20,7 +20,6 @@ class PassportController extends Controller
         $newUser->password = bcrypt($request->password);
         $newUser->typeuser = $request->typeuser;
         $newUser->state = $request->state;
-        // $newUser->state_id = $request->state_id;
         $newUser->save();
         $success['token'] = $newUser->createToken('MyApp')->accessToken;
         $success['name'] = $newUser->name;
