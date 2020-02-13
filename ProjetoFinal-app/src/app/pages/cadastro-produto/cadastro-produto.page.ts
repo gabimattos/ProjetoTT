@@ -11,6 +11,7 @@ import { AuthProductService } from '../../services/auth-product.service';
 export class CadastroProdutoPage implements OnInit {
 
   registerProdutoForm: FormGroup;
+  Usuario;
 
   constructor(public formbuilder:FormBuilder, private router: Router, public authproductService: AuthProductService) {
   this.registerProdutoForm = this.formbuilder.group({
@@ -28,7 +29,7 @@ export class CadastroProdutoPage implements OnInit {
 
 registrarProduto(form){
 
-  this.authproductService.cadastroProduto( form.value ).subscribe(
+  this.authproductService.cadastroProduto( {...form.value, user_id: this.Usuario.id} ).subscribe(
     (res) => {
       console.log(res);
       console.log( res.message );
@@ -43,6 +44,7 @@ submitForm(form){
 }
 
   ngOnInit() {
+    this.Usuario = localStorage.getItem('Usuario');
   }
 
 }
