@@ -52,6 +52,9 @@ VaipraHomeLogado(){
 }
 
   ngOnInit() {
+      let user = localStorage.getItem('userToken');
+      // if(!user)  this.router.navigate(['/login']);
+
        this.productId = this.actRoute.snapshot.paramMap.get('id');
        console.log(this.productId)
        this.getInformacoes(this.productId)

@@ -40,7 +40,7 @@
     <ion-slides  [options]="slideOpts">
 
       <ion-slide *ngFor = "let produto of produtoshome">
-        <app-produtos-home [prodHome]="produto"></app-produtos-home>
+        <app-produtos-home [prodHome]="produto" ></app-produtos-home>
 
     </ion-slide>
   </ion-slides>
@@ -53,7 +53,7 @@
 
   <ion-slides  [options]="slideOpts">
 
-    <ion-slide *ngFor = "let vendedor of vendedoreshome">
+    <ion-slide *ngFor = "let vendedor of vendedoreshome" [routerLink]="['/login']">
         <app-vendedores-home [vendedoresHome]="vendedor"></app-vendedores-home>
     </ion-slide>
 
