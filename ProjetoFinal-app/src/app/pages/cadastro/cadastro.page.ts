@@ -18,7 +18,8 @@ export class CadastroPage implements OnInit {
         email:[null, [Validators.required, Validators.email]],
         password:[null, [Validators.required, Validators.minLength(6)]],
         state: [null],
-        typeuser:[null, [Validators.required]]
+        typeuser: [null, [Validators.required]]
+
 
       });
 

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {AuthService} from  '../../services/auth.service';
-import { ActivatedRoute} from '@angular/router';
+import {AuthProductService} from '../../services/auth-product.service';
+
+
 
 @Component({
   selector: 'app-perfil-vendedor',
@@ -10,27 +12,27 @@ import { ActivatedRoute} from '@angular/router';
 })
 export class PerfilVendedorPage implements OnInit {
 
-    // dadosPerfil;
-    // userId;
+    usuario;
+    produtos: any[];
+    userId;
     typecompare: boolean = false;
     username;
     userplace;
 
 
-  constructor(private activateroute: ActivatedRoute, private router: Router, public authService: AuthService) {
+  constructor(private router: Router, public authService: AuthService, public authProduct: AuthProductService) {
 
     let user = JSON.parse(localStorage.getItem('Usuario'));
 
+    this.userId = user.id;
     this.username=user.name;
     this.userplace=user.state;
+
 
     if(user.typeuser == 'true'){
       this.typecompare = true;
     }
   }
-
-
-
 
   VaipraHomeLogado(){
     this.router.navigate(['/home-logado']);
@@ -40,25 +42,22 @@ export class PerfilVendedorPage implements OnInit {
     this.router.navigate(['/cadastro-produto']);
   }
 
-//   getInformacoes(id){
-//
-//   this.authService.getUser(id).subscribe(
-//     (res) => {
-//       this.dadosPerfil=res;
-//       console.log(this.dadosPerfil);
-//       if(this.dadosPerfil.typeuser == 'true'){
-//         this.typecompare = true;
-//       }
-//       this.username=this.dadosPerfil.name;
-//       this.userplace=this.dadosPerfil.state;
-//
-//     }
-//   );
-//
-// }
   ngOnInit() {
-
-
+    this.getDados();
   }
 
+  getDados(){
+  console.log(this.userId);
+  this.authProduct.listaProdutos(this.userId).subscribe((res)=>{
+    console.log(res);
+
+    this.usuario = res;
+    this.produtos = this.usuario.products;
+    console.log(this.produtos);
+
+  }, error=>{
+    console.log(error);
+
+  });
+}
 }

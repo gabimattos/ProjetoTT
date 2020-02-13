@@ -44,10 +44,6 @@ export class LoginPage implements OnInit {
      this.router.navigate(['/cadastro']);
   }
 
-  VaiproCadastroVendedor(){
-    this.router.navigate(['/cadastro-vendedor']);
-  }
-
   VaipraHome(){
     this.router.navigate(['/home']);
   }

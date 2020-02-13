@@ -73,10 +73,13 @@ class PassportController extends Controller
       $user=Auth::user();
       $produto=Produto::where('id', '$produto_id');
 
+
       if(typeuser=="true"){
           $produto->user_id=$user->id;
           $produto->save();
       }
+
+
       return response() -> json('Adicionado');
 
     }

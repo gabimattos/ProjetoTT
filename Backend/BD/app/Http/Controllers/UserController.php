@@ -6,9 +6,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\User as UserResource;
 use App\User;
+use Auth;
+use App\Product;
 
 class UserController extends Controller
 {
+
+  public function listSellers(Request $request){
+      $user=User::where('typeuser', 'true')->get();
+      return response()->json([$user]);
+  }
+
     public function storeUser(UserRequest $request){
         $user = new User;
         $user->createUser($request);
@@ -40,9 +48,29 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         return Storage::download($user->photo);
     }
-    
-    public function userProducts($id) {
-        $user = User::with('products')->find($id);
-        return $user;
-    }
+
+    // Produtos do Usuario
+    /*public function userProducts() {
+        $user=Auth::user();
+        return response()->json($user->products);
+     }*/
+
+     public function userProducts($id) {
+
+    $user = User::with('products')->find($id);
+    return $user;
+}
+
+// Posta Produto
+     public function postarProduto(Request $request){
+
+       $user=Auth::user();
+       $produto=new Product;
+       $produto->createProduct($request);
+       $produto->user_id = $user->id;
+
+       $produto->save();
+       return response()->json($produto);
+
+     }
 }

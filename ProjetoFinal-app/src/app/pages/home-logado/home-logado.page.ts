@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router' ;
 import {AuthService} from  '../../services/auth.service';
 import {AuthProductService} from '../../services/auth-product.service';
-import { ActivatedRoute} from '@angular/router';
+
+
 
 @Component({
   selector: 'app-home-logado',
@@ -13,48 +14,47 @@ export class HomeLogadoPage implements OnInit {
 
   // public produtos = [];
 
-  dadosPerfil;
+  produtos;
+  bla: any[];
+  vendedores: any[];
+  userId;
   username;
   userplace;
 
-  constructor(private activateroute: ActivatedRoute, private router: Router, public authService: AuthService) {
-    // this.getInformacoes(this.activateroute.snapshot.params["id"]);
+  constructor( private router: Router, public authService: AuthService, public authProduct: AuthProductService) {
+
 
     let user = JSON.parse(localStorage.getItem('Usuario'));
 
+    this.userId = user.id;
     this.username=user.name;
     this.userplace=user.state;
   }
 
   ngOnInit() {
+    this.getDados();
+    this.getSeller();
   }
 
-  getInformacoes(id){
-
-  this.authService.getUser(id).subscribe(
-    (res) => {
-      this.dadosPerfil=res;
-      console.log(this.dadosPerfil);
-
-      this.username=this.dadosPerfil.name;
-      this.userplace=this.dadosPerfil.state;
-
-    }
-  );
-
+  getDados(){
+  console.log(this.userId);
+  this.authProduct.getProdutos().subscribe((res)=>{
+    this.bla = res;
+    console.log(this.bla);
+  }, error=>{
+    console.log(error);
+  });
 }
 
-  public ProdutoSelecionado(id){
-    this.router.navigate(['/produto', {Produtoid: id}]);
-
-  }
-
-  VaiproCarrinho(){
-    this.router.navigate(['/carrinho']);
-  }
-
-  VaiproBuscar(){
-    this.router.navigate(['/busca']);
-  }
+getSeller(){
+console.log(this.userId);
+this.authService.getSellers().subscribe((res)=>{
+  console.log(res);
+  this.vendedores = res[0];
+  console.log(this.vendedores);
+}, error=>{
+  console.log(error);
+});
+}
 
 }

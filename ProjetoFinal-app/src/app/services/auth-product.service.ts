@@ -18,8 +18,8 @@ export class AuthProductService {
   }
 
   cadastroProduto(form):Observable<any>{
-    this.httpHeaders.headers["Authorization"] = "Bearer" + localStorage.getItem('userToken');
-    return this.http.post(this.apiURL + 'criaProduto', form, this.httpHeaders);
+    this.httpHeaders.headers["Authorization"] = "Bearer " + localStorage.getItem('userToken');
+    return this.http.put(this.apiURL + 'criaProduto', form, this.httpHeaders);
   }
 
   retornaInformacoes(id):Observable<any>{
@@ -28,6 +28,14 @@ export class AuthProductService {
 
   getProduct(id: any): Observable<any> {
       return this.http.get(this.apiURL + 'mostraProduto/' + id, this.httpHeaders);
+  }
+
+  listaProdutos(id): Observable<any> {
+      return this.http.get(this.apiURL + 'listaProdutos/' + id);
+  }
+
+  getProdutos(): Observable<any> {
+      return this.http.get(this.apiURL + 'listaProdutos');
   }
 
 

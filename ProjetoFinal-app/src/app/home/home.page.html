@@ -14,7 +14,7 @@
 
       </ion-col>
 
-      <ion-col (click)="VaipraBusca()" id="col1">
+      <ion-col (click)="VaiproLogin()" id="col1">
         <!-- <ion-searchbar showCancelButton="never" ></ion-searchbar> BARRA DE PESQUISA IGUAL DA PAGE PESQUISA-->
         Faça sua busca
       </ion-col>
@@ -24,7 +24,7 @@
       </ion-col>
     </ion-row>
 
-    
+
   </ion-grid>
 
 </ion-header>
@@ -35,65 +35,12 @@
   <ion-grid>
     <ion-row>
 
-    <h1>Produtos Recomendados</h1>
+    <h1>Produtos Cadastrados</h1>
 
     <ion-slides  [options]="slideOpts">
 
-      <ion-slide>
-
-        <ion-card class="cardhome">
-          <ion-card-header id="imgcard1" > </ion-card-header>
-          <ion-card-content > Banana</ion-card-content>
-        </ion-card>
-
-        <ion-card class="cardhome">
-          <ion-card-header id="imgcard2" > </ion-card-header>
-          <ion-card-content > Morango </ion-card-content>
-        </ion-card>
-
-        <ion-card class="cardhome">
-          <ion-card-header id="imgcard3" > </ion-card-header>
-          <ion-card-content > Melancia </ion-card-content>
-        </ion-card>
-
-    </ion-slide>
-
-    <ion-slide>
-
-      <ion-card class="cardhome">
-        <ion-card-header id="imgcard4" > </ion-card-header>
-        <ion-card-content > Laranja </ion-card-content>
-      </ion-card>
-
-      <ion-card class="cardhome">
-        <ion-card-header id="imgcard5" > </ion-card-header>
-        <ion-card-content > Alface </ion-card-content>
-      </ion-card>
-
-      <ion-card class="cardhome">
-        <ion-card-header id="imgcard6" > </ion-card-header>
-        <ion-card-content >Tomate</ion-card-content>
-      </ion-card>
-
-    </ion-slide>
-
-    <ion-slide>
-
-      <ion-card class="cardhome">
-        <ion-card-header id="imgcard7" > </ion-card-header>
-        <ion-card-content > Cebola </ion-card-content>
-      </ion-card>
-
-      <ion-card class="cardhome">
-        <ion-card-header id="imgcard8" > </ion-card-header>
-        <ion-card-content > Pepino </ion-card-content>
-      </ion-card>
-
-      <ion-card class="cardhome">
-        <ion-card-header id="imgcard9" > </ion-card-header>
-        <ion-card-content > Tangerina </ion-card-content>
-      </ion-card>
-
+      <ion-slide *ngFor = "let produto of produtoshome">
+        <app-produtos-home [prodHome]="produto"></app-produtos-home>
 
     </ion-slide>
   </ion-slides>
@@ -102,67 +49,14 @@
 
   <ion-row>
 
-  <h1>Produtos Mais vendidos.</h1>
+  <h1>Produtores Cadastrados</h1>
 
   <ion-slides  [options]="slideOpts">
 
-    <ion-slide>
+    <ion-slide *ngFor = "let vendedor of vendedoreshome">
+        <app-vendedores-home [vendedoresHome]="vendedor"></app-vendedores-home>
+    </ion-slide>
 
-      <ion-card class="cardhome">
-        <ion-card-header id="imgcard6" > </ion-card-header>
-        <ion-card-content >Tomate</ion-card-content>
-      </ion-card>
-
-      <ion-card class="cardhome">
-        <ion-card-header id="imgcard7" > </ion-card-header>
-        <ion-card-content >Cebola</ion-card-content>
-      </ion-card>
-
-      <ion-card class="cardhome">
-        <ion-card-header id="imgcard8" > </ion-card-header>
-        <ion-card-content >Pepino</ion-card-content>
-      </ion-card>
-
-  </ion-slide>
-
-  <ion-slide>
-
-    <ion-card class="cardhome">
-      <ion-card-header id="imgcard9" > </ion-card-header>
-      <ion-card-content > Tangerina </ion-card-content>
-    </ion-card>
-
-    <ion-card class="cardhome">
-      <ion-card-header id="imgcard1" > </ion-card-header>
-      <ion-card-content >Banana</ion-card-content>
-    </ion-card>
-
-    <ion-card class="cardhome">
-      <ion-card-header id="imgcard3" > </ion-card-header>
-      <ion-card-content >Melancia</ion-card-content>
-    </ion-card>
-
-  </ion-slide>
-
-  <ion-slide>
-
-    <ion-card class="cardhome">
-      <ion-card-header id="imgcard5" > </ion-card-header>
-      <ion-card-content > Alface </ion-card-content>
-    </ion-card>
-
-    <ion-card class="cardhome">
-      <ion-card-header id="imgcard2" > </ion-card-header>
-      <ion-card-content > Morango </ion-card-content>
-    </ion-card>
-
-    <ion-card class="cardhome">
-      <ion-card-header id="imgcard4" > </ion-card-header>
-      <ion-card-content > Laranja</ion-card-content>
-    </ion-card>
-
-
-  </ion-slide>
 </ion-slides>
 
 </ion-row>

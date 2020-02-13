@@ -11,13 +11,11 @@ use App\Product;
 
 class ProductController extends Controller
 {
-  public function storeProduct(Request $request){
-      $product = new Product;
-      $product->createProduct($request);
-      return response()->json([$product]);
-  }
-
-
+  // public function storeProduct(Request $request){
+  //     $product = new Product;
+  //     $product->createProduct($request);
+  //     return response()->json([$product]);
+  // }
 
   public function listProduct(){
       return response()->json(Product::all());

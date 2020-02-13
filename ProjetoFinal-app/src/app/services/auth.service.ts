@@ -20,7 +20,9 @@ export class AuthService {
     return this.http.post(this.apiURL + 'registraUser', form, this.httpHeaders);
   }
 
-
+  getSellers():Observable<any>{
+    return this.http.get(this.apiURL + 'listaVendedores');
+  }
 
   loginUsuario(form):Observable<any>{
     return this.http.post(this.apiURL + 'loginUser', form, this.httpHeaders);

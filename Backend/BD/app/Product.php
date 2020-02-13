@@ -30,8 +30,7 @@ class Product extends Model
         $this->productName = $request->productName;
         $this->price = $request->price;
         $this->quantity = $request->quantity;
-        $this->type = $request->type;
-        $this->user_id = $request->user_id;
+        //$this->type = $request->type;
         $this->description = $request->description;
 
         $this->save();

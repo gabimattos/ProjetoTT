@@ -22,7 +22,7 @@ export class AppComponent {
     },
     {
       title: 'Home',
-      url: '/home',
+      url: '/home-logado',
       icon: 'home'
     },
     {
@@ -32,25 +32,14 @@ export class AppComponent {
     },
 
     {
-      title: 'Login',
-      url: '/login',
-      icon: 'person-add'
-    },
-
-    {
       title: 'Busca',
       url: '/busca',
       icon: 'search'
     },
 
     {
-      title: 'Produto',
-      url: '/produto',
-
-    },
-    {
       title: 'Sair',
-      icon: 'power-outline',
+      icon: 'power'
 
     },
 
@@ -67,7 +56,7 @@ export class AppComponent {
     {
       title: 'Login',
       url: '/login',
-      icon: 'person-add'
+      icon: 'log-in'
     },
   ];
 
@@ -81,8 +70,6 @@ export class AppComponent {
   ) {
 
     this.initializeApp();
-
-
   }
 
   initializeApp() {
@@ -100,23 +87,15 @@ export class AppComponent {
     console.log(this.currentUrl);
   }
 
-  // logout() {
-  //
-  //   this.authService.logoutUser();
-  //   console.log( 'flag' );
-  //   localStorage.setItem( 'userToken', null);
-  //   localStorage.setItem('Usuario', null);
-  //   // this.router.navigate(['/home']);
-  //
-  // }
-
   logout() {
         this.authService.logoutUser().subscribe(
             (res) => {
                 console.log(res);
                 localStorage.removeItem('userToken');
                 localStorage.removeItem('Usuario');
+                console.log("antes da home");
                 this.router.navigate(['/home']);
+                console.log("depois da home");
             }
         );
     }

@@ -10,14 +10,17 @@
 
       </ion-col>
 
-      <ion-col (click)="VaiproBuscar()" id="col1">
+      <ion-col  id="col1">
         <!-- <ion-searchbar showCancelButton="never" ></ion-searchbar> BARRA DE PESQUISA IGUAL DA PAGE PESQUISA-->
         Faça sua busca
       </ion-col>
 
+      <!-- (click)="VaiproBuscar()" -->
+
       <ion-col size="3" id="col2">
-        <ion-icon (click)="VaiproCarrinho()" name="cart" id="shopp" ></ion-icon>
+        <ion-icon  name="cart" id="shopp" ></ion-icon>
       </ion-col>
+      <!-- (click)="VaiproCarrinho()" -->
 
     </ion-row>
 
@@ -39,46 +42,12 @@
 
     <ion-row>
 
-      <h1>Produtores famosos perto de você.</h1>
+      <h1>Produtos disponíveis.</h1>
 
       <ion-slides  [options]="slideOpts">
 
-        <ion-slide>
-
-          <ion-card class="cardhome">
-            <ion-card-header id="feira1" > </ion-card-header>
-            <ion-card-content > Tenda do Rafa </ion-card-content>
-          </ion-card>
-
-          <ion-card class="cardhome">
-            <ion-card-header id="feira2" > </ion-card-header>
-            <ion-card-content > Organicos do Gabriel </ion-card-content>
-          </ion-card>
-
-          <ion-card class="cardhome">
-            <ion-card-header id="feira3" > </ion-card-header>
-            <ion-card-content > Gabi Frutas </ion-card-content>
-          </ion-card>
-
-        </ion-slide>
-
-        <ion-slide>
-
-          <ion-card class="cardhome">
-            <ion-card-header id="feira4" > </ion-card-header>
-            <ion-card-content > Frutas e Verduras</ion-card-content>
-          </ion-card>
-
-          <ion-card class="cardhome">
-            <ion-card-header id="feira5" > </ion-card-header>
-            <ion-card-content > NatureLife</ion-card-content>
-          </ion-card>
-
-          <ion-card class="cardhome">
-            <ion-card-header id="feira6" > </ion-card-header>
-            <ion-card-content > Barraca da Ana </ion-card-content>
-          </ion-card>
-
+        <ion-slide *ngFor ="let produto of bla">
+          <app-produtos [prodObj]="produto"></app-produtos>
         </ion-slide>
 
 
@@ -88,68 +57,16 @@
 
     <ion-row>
 
-      <h1>Produtos Mais vendidos.</h1>
+      <h1>Produtores Cadastrados</h1>
 
       <ion-slides  [options]="slideOpts">
 
-        <ion-slide>
-
-          <ion-card class="cardhome">
-            <ion-card-header id="imgcard6" > </ion-card-header>
-            <ion-card-content >Tomate </ion-card-content>
-          </ion-card>
-
-          <ion-card class="cardhome">
-            <ion-card-header id="imgcard7" > </ion-card-header>
-            <ion-card-content > Cebola </ion-card-content>
-          </ion-card>
-
-          <ion-card class="cardhome">
-            <ion-card-header id="imgcard8" > </ion-card-header>
-            <ion-card-content > Pepino</ion-card-content>
-          </ion-card>
-
-      </ion-slide>
-
-      <ion-slide>
-
-        <ion-card class="cardhome">
-          <ion-card-header id="imgcard9" > </ion-card-header>
-          <ion-card-content > Tangerina </ion-card-content>
-        </ion-card>
-
-        <ion-card class="cardhome">
-          <ion-card-header id="imgcard1" > </ion-card-header>
-          <ion-card-content > Banana </ion-card-content>
-        </ion-card>
-
-        <ion-card class="cardhome">
-          <ion-card-header id="imgcard3" > </ion-card-header>
-          <ion-card-content > Melancia</ion-card-content>
-        </ion-card>
-
-      </ion-slide>
-
-      <ion-slide>
-
-        <ion-card class="cardhome">
-          <ion-card-header id="imgcard5" > </ion-card-header>
-          <ion-card-content > Alface </ion-card-content>
-        </ion-card>
-
-        <ion-card class="cardhome">
-          <ion-card-header id="imgcard2" > </ion-card-header>
-          <ion-card-content > Morango</ion-card-content>
-        </ion-card>
-
-        <ion-card class="cardhome">
-          <ion-card-header id="imgcard4" > </ion-card-header>
-          <ion-card-content > Laranja </ion-card-content>
-        </ion-card>
+        <ion-slide *ngFor = "let vendedor of vendedores">
+          <app-vendedores [prodObj]="vendedor"></app-vendedores>
+        </ion-slide>
 
 
-      </ion-slide>
-    </ion-slides>
+      </ion-slides>
 
   </ion-row>
 

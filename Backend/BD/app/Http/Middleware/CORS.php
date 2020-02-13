@@ -19,7 +19,7 @@ class CORS
      // adiciona os headers a ela
     $resposta->headers->set('Access-Control-Allow-Origin' , '*');
     $resposta->headers->set('Access-Control-Allow-Methods' , 'GET, POST, PUT, DELETE, OPTIONS' );
-    $resposta->headers->set('Access-Control-Allow-Headers' , 'Origin, X-Request-Width, Authorization, Content-Type, Accept' );
+    $resposta->headers->set('Access-Control-Allow-Headers' , ' Content-Type, Accept, Authorization' );
 
      // retorna a resposta
      return $resposta;
