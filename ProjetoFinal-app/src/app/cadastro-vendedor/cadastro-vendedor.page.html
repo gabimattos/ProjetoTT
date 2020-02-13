@@ -1,5 +1,6 @@
 <ion-header>
   <ion-toolbar>
+  <!--Botao que redireciona para a pagina de cadastro-->
     <ion-button (click)="VaiproCadastro()" >
       <ion-icon  name="arrow-back"></ion-icon>
     </ion-button>
@@ -8,7 +9,7 @@
 </ion-header>
 
 <ion-content class="fundo">
-
+  <!-- Formulário onde será feito o cadastro dos vendedores -->
   <div class="centralizar">
     <form [formGroup] = "registerVendedorForm" (ngSubmit) = "submitForm(registerVendedorForm)">
 
@@ -37,7 +38,7 @@
         </ion-item>
 
       </div>
-
+      <!-- Após colocar os dados, haverá o submit que levará para a página de login -->
       <ion-row class="ion-justify-content-center">
         <ion-button (click)="VaiproLogin()" type="submit" color="primary" shape="round" >Cadastrar</ion-button>
       </ion-row>

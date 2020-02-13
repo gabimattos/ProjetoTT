@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {AuthProductService} from  '../../services/auth-product.service';
-import {ActivateRoute} from '@angular/router';
 import { HomeLogadoPage } from '../home-logado/home-logado.page';
 import { ToastController } from '@ionic/angular';
 
