@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router' ;
 import {AuthService} from  '../../services/auth.service';
 import {AuthProductService} from '../../services/auth-product.service';
+import {ActivatedRoute} from '@angular/router;'
 
 
 
@@ -57,4 +58,7 @@ this.authService.getSellers().subscribe((res)=>{
 });
 }
 
+public ProdutoSelecionado(id){
+  this.router.navigate(['/produto', {Produtoid: id}]);
+}
 }

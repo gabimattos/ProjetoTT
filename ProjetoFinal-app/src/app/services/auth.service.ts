@@ -44,4 +44,7 @@ export class AuthService {
 
 
     constructor(public http: HttpClient) { }
+    estaLogado(){
+      return localStorage.getItem('userToken');
+    }
 }

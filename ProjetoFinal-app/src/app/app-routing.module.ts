@@ -30,7 +30,8 @@ const routes: Routes = [
   {
     path: 'home-logado',
     loadChildren: () => import('./pages/home-logado/home-logado.module').then( m => m.HomeLogadoPageModule)
-  },  {
+  },
+  {
     path: 'intro',
     loadChildren: () => import('./intro/intro.module').then( m => m.IntroPageModule)
   },
@@ -51,6 +52,11 @@ const routes: Routes = [
     path: 'produto',
     loadChildren: () => import('./pages/produto/produto.module').then( m => m.ProdutoPageModule)
   },
+  {
+    path: 'produto/:id',
+    loadChildren: () => import('./pages/produto/produto.module').then( m => m.ProdutoPageModule)
+  },
+
 
 
 

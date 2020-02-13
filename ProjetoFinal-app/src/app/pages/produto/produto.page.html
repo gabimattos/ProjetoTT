@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button (click)="VaipraHome()">
+    <ion-button (click)="VaipraHomeLogado()">
       <ion-icon name="arrow-back"></ion-icon>
     </ion-button>
   </ion-toolbar>
@@ -9,7 +9,7 @@
 <ion-content>
 
 <div class="imgProduto">
-  <img src="../../../assets/imagens/banana.jpg" alt="">
+  <img src="{{produtoPhoto}}" alt="">
 </div>
 
 <ion-grid>
@@ -20,8 +20,7 @@
       <p>Quantidade Disponível: {{productQuantity}}</p>
 
     </ion-col>
-      <ion-button> Comprar </ion-button>
-
+      <ion-button (click)='presentToast(VaipraHomeLogado())'> Comprar </ion-button>
   </ion-row>
 </ion-grid>
 

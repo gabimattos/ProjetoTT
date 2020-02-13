@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {AuthProductService} from  '../../services/auth-product.service';
-// import {ActivateRoute} from '@angular/router';
-import {HomeLogadoPage} from '../home-logado/home-logado.page';
-
+import { HomeLogadoPage } from '../home-logado/home-logado.page';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-produto',
   templateUrl: './produto.page.html',
@@ -17,23 +16,27 @@ export class ProdutoPage implements OnInit {
       productName;
       productPrice;
       productQuantity;
+      productPhoto;
+      productId;
 
+  constructor(private actRoute: ActivatedRoute, private router:Router, public productService: AuthProductService, public toastController: ToastController) {}
 
-  constructor(private router:Router, public productService: AuthProductService) {
+async presentToast() {
 
-        this.getInformacoes(8);
-        // this.Produtoid=this.router.snapshot.params["Produtoid"];
-  }
-
-
+    const toast = await this.toastController.create({
+      message: 'Sua compra foi realizada com sucesso!',
+      duration: 2000
+    });
+    toast.present();
+}
 
   getInformacoes(id){
-
+    console.log(id)
   this.productService.getProduct(id).subscribe(
     (res) => {
       this.dadosProduto=res;
       console.log(this.dadosProduto);
-
+      this.productPhoto=this.dadosProduto.photo;
       this.productName=this.dadosProduto.productName;
       this.productPrice=this.dadosProduto.price;
       this.productQuantity=this.dadosProduto.quantity;
@@ -43,18 +46,21 @@ export class ProdutoPage implements OnInit {
 
 }
 
-VaipraHome(){
-  this.router.navigate(['/home']);
+
+VaipraHomeLogado(){
+  this.router.navigate(['/home-logado']);
 }
 
   ngOnInit() {
-
-  //   this.productService.mostraProduto(this.Produtoid).subscribe(
-  //     (res) => {
-  //       console.log(res[0]);
-  //       this.produto = res[0];
-  //     }
-  //   );
+       this.productId = this.actRoute.snapshot.paramMap.get('id');
+       console.log(this.productId)
+       this.getInformacoes(this.productId)
+    // this.productService.mostraProduto(this.productId).subscribe(
+    //   (res) => {
+    //     console.log(res[0]);
+    //     // this.produto = res[0];
+    //   }
+    // );
   // }
 
   }
