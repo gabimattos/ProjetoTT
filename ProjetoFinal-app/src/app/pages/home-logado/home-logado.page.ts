@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router' ;
+import {Router} from '@angular/router';
 import {AuthService} from  '../../services/auth.service';
 import {AuthProductService} from '../../services/auth-product.service';
 import {ActivatedRoute} from '@angular/router';
@@ -21,7 +21,7 @@ export class HomeLogadoPage implements OnInit {
   username;
   userplace;
 
-  constructor( private router: Router, public authService: AuthService, public authProduct: AuthProductService) {
+  constructor(private actRoute: ActivatedRoute, private router: Router, public authService: AuthService, public authProduct: AuthProductService) {
 
 
     let user = JSON.parse(localStorage.getItem('Usuario'));
@@ -31,6 +31,11 @@ export class HomeLogadoPage implements OnInit {
     this.userplace=user.state;
   }
 
+  vaiProPerfilVendedor(id){
+    this.router.navigate(['/perfil-vendedor', id]);
+  }
+
+
   ngOnInit() {
 
   }
@@ -38,6 +43,7 @@ export class HomeLogadoPage implements OnInit {
   ionViewWillEnter(){
     this.getDados();
     this.getSeller();
+    console.log(vaiProPerfilVendedor(id));
   }
 
   getDados(){

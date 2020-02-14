@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {AuthService} from  '../../services/auth.service';
 import {AuthProductService} from '../../services/auth-product.service';
 
@@ -18,15 +18,19 @@ export class PerfilVendedorPage implements OnInit {
     typecompare: boolean = false;
     username;
     userplace;
+    userToken;
+    user = JSON.parse(localStorage.getItem('Usuario'));
 
-
-  constructor(private router: Router, public authService: AuthService, public authProduct: AuthProductService) {
-
-    let user = JSON.parse(localStorage.getItem('Usuario'));
+  constructor(private actRoute: ActivatedRoute,
+    private router: Router,
+    public authService: AuthService,
+    public authProduct: AuthProductService,
+    public user: AuthService
+  ) {
 
     this.userId = user.id;
-    this.username=user.name;
-    this.userplace=user.state;
+    this.username = user.name;
+    this.userplace = user.state;
 
 
     if(user.typeuser == 'true'){
@@ -36,6 +40,9 @@ export class PerfilVendedorPage implements OnInit {
 
   VaipraHomeLogado(){
     this.router.navigate(['/home-logado']);
+  }
+  vaiProPerfilVendedor(id){
+    this.router.navigate(['/perfil-vendedor']);
   }
 
   VaipraCadastroProduto(){
@@ -48,6 +55,10 @@ export class PerfilVendedorPage implements OnInit {
 
   ionViewWillEnter(){
     this.getDados();
+    this.userToken = localStorage.getItem('userToken');
+    this.userId = this.actRoute.snapshot.paramMap.get('id');
+    console.log(this.userId);
+    vaiProPerfilVendedor(this.userId);
   }
 
   getDados(){

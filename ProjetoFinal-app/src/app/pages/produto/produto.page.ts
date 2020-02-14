@@ -19,7 +19,12 @@ export class ProdutoPage implements OnInit {
       productPhoto;
       productId;
 
-  constructor(private actRoute: ActivatedRoute, private router:Router, public productService: AuthProductService, public toastController: ToastController) {}
+  constructor(
+    private actRoute: ActivatedRoute, 
+    private router:Router, 
+    public productService: AuthProductService, 
+    public toastController: ToastController,
+  ) {}
 
 async presentToast() {
 
@@ -52,7 +57,10 @@ VaipraHomeLogado(){
 }
 
   ngOnInit() {
-       this.productId = this.actRoute.snapshot.paramMap.get('id');
+      let user = localStorage.getItem('userToken');
+      // if(!user)  this.router.navigate(['/login']);
+      
+       this.productId = this.actRoute.snapshot.paramMap.get('id'); //pega id
        console.log(this.productId)
        this.getInformacoes(this.productId)
     // this.productService.mostraProduto(this.productId).subscribe(
