@@ -33,6 +33,7 @@ export class HomeLogadoPage implements OnInit {
   }
 
   vaiProPerfilVendedor(id){
+    console.log(id);
     this.router.navigate(['/perfil-vendedor', id]);
   }
 
@@ -40,7 +41,6 @@ export class HomeLogadoPage implements OnInit {
   ngOnInit() {
     this.getDados();
     this.getSeller();
-    console.log(vaiProPerfilVendedor(id));
   }
 
   getDados(){
@@ -59,7 +59,7 @@ this.authService.getSellers().subscribe((res)=>{
   console.log(res);
   this.vendedores = res[0];
   console.log(this.vendedores);
-}, error=>{
+}, (error)=>{
   console.log(error);
 });
 }

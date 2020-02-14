@@ -19,48 +19,46 @@ export class PerfilVendedorPage implements OnInit {
     username;
     userplace;
     userToken;
-    user = JSON.parse(localStorage.getItem('Usuario'));
+    user;
 
   constructor(private actRoute: ActivatedRoute, 
     private router: Router, 
     public authService: AuthService, 
-    public authProduct: AuthProductService,
-    public user: AuthService
+    public authProduct: AuthProductService
   ) {
+    this.userToken = localStorage.getItem('userToken');
+    this.userId = this.actRoute.snapshot.paramMap.get('id');
+    // this.user = JSON.parse(localStorage.getItem('Usuario'));
+    // this.userId = user.id;
+    // this.username = user.name;
+    // this.userplace = user.state;
 
-    this.userId = user.id;
-    this.username = user.name;
-    this.userplace = user.state;
 
-
-    if(user.typeuser == 'true'){
-      this.typecompare = true;
-    }
+    // if(user.typeuser == 'true'){
+    //   this.typecompare = true;
+    //}
   }
 
   VaipraHomeLogado(){
     this.router.navigate(['/home-logado']);
   }
-  vaiProPerfilVendedor(id){
-    this.router.navigate(['/perfil-vendedor']);
-  }
+  
 
   VaipraCadastroProduto(){
     this.router.navigate(['/cadastro-produto']);
   }
 
   ngOnInit() {
-    console.log(user);
+    //console.log(this.user);
     this.getDados();
-    this.userToken = localStorage.getItem('userToken');
-    this.userId = this.actRoute.snapshot.paramMap.get('id');
+    
     console.log(this.userId);
-    vaiProPerfilVendedor(this.userId);
+    
   }
 
    getDados(){
    console.log(this.userId);
-   this.user.listaProdutos(this.userId).subscribe(
+   this.authProduct.listaProdutos(this.userId).subscribe(
      (res)=>{
      console.log(res);
 

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vendedores',
@@ -8,9 +9,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class VendedoresComponent implements OnInit {
 
   @Input() prodObj;
+  constructor(public router: Router) {
+  	
+   }
 
-  constructor() { }
-
-  ngOnInit() {}
+saiDaqui(id) {
+	this.router.navigate(['/perfil-vendedor', id]);
+}
+  ngOnInit() {
+  }
 
 }
