@@ -42,8 +42,8 @@ export class PerfilVendedorPage implements OnInit {
   VaipraHomeLogado(){
     this.router.navigate(['/home-logado']);
   }
-  vaiProPerfilVendedor(id){
-    this.router.navigate(['/perfil-vendedor']);
+  vaiProPerfilVendedor(){
+    this.router.navigate(['/perfil-vendedor/']);
   }
 
   VaipraCadastroProduto(){

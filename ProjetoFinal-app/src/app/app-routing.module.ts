@@ -42,7 +42,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/cadastro-produto/cadastro-produto.module').then( m => m.CadastroProdutoPageModule)
   },
   {
-    path: 'perfil-vendedor/:id',
+    path: 'perfil-vendedor',
     loadChildren: () => import('./pages/perfil-vendedor/perfil-vendedor.module').then( m => m.PerfilVendedorPageModule)
   },
   {
