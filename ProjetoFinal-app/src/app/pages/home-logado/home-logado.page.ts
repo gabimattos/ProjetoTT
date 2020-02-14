@@ -22,7 +22,7 @@ export class HomeLogadoPage implements OnInit {
   username;
   userplace;
 
-  constructor( private router: Router, public authService: AuthService, public authProduct: AuthProductService) {
+  constructor(private actRoute: ActivatedRoute, private router: Router, public authService: AuthService, public authProduct: AuthProductService) {
 
 
     let user = JSON.parse(localStorage.getItem('Usuario'));
@@ -32,9 +32,15 @@ export class HomeLogadoPage implements OnInit {
     this.userplace=user.state;
   }
 
+  vaiProPerfilVendedor(id){
+    this.router.navigate(['/perfil-vendedor', id]);
+  }
+
+
   ngOnInit() {
     this.getDados();
     this.getSeller();
+    console.log(vaiProPerfilVendedor(id));
   }
 
   getDados(){

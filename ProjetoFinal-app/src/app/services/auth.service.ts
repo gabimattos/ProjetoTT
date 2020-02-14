@@ -27,6 +27,9 @@ export class AuthService {
   loginUsuario(form):Observable<any>{
     return this.http.post(this.apiURL + 'loginUser', form, this.httpHeaders);
   }
+  // perfilVendedor(id):Observable<any>{
+  //   return this.http.post(this.apiURL + 'perfil-vendedor/' + id);
+  // }
 
   logoutUser(): Observable<any> {
 
