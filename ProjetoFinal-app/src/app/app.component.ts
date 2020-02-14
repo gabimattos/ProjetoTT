@@ -32,12 +32,6 @@ export class AppComponent {
     },
 
     {
-      title: 'Busca',
-      url: '/busca',
-      icon: 'search'
-    },
-
-    {
       title: 'Sair',
       icon: 'power'
 

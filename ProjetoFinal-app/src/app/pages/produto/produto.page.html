@@ -8,21 +8,21 @@
 
 <ion-content>
 
-<div class="imgProduto">
-  <img src="{{productPhoto}}" alt="">
-</div>
+  <div class="imgProduto">
+    <img src="{{productPhoto}}" alt="">
+  </div>
 
-<ion-grid>
-  <ion-row class="ion-justify-content-center">
-    <ion-col>
-      <h1>{{productName}}</h1>
-      <p>Preço: R${{productPrice}} /Kg</p>
-      <p>Quantidade Disponível: {{productQuantity}}</p>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <h1>{{productName}}</h1>
+        <p>Preço: R${{productPrice}} /Kg</p>
+        <p>Quantidade Disponível: {{productQuantity}}</p>
 
-    </ion-col>
-      <ion-button (click)='presentToast(VaipraHomeLogado())'> Comprar </ion-button>
-  </ion-row>
-</ion-grid>
+      </ion-col>
+      <ion-button  (click)= 'Compra(productId)' > Comprar </ion-button>
+    </ion-row>
+  </ion-grid>
 
 
 </ion-content>

@@ -43,7 +43,7 @@ export class HomeLogadoPage implements OnInit {
   ionViewWillEnter(){
     this.getDados();
     this.getSeller();
-    console.log(vaiProPerfilVendedor(id));
+    // console.log(this.vaiProPerfilVendedor(id));
   }
 
   getDados(){

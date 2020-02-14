@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {AuthProductService} from  '../../services/auth-product.service';
 import { HomeLogadoPage } from '../home-logado/home-logado.page';
 import { ToastController } from '@ionic/angular';
+import {AuthService} from '../../services/auth.service';
 @Component({
   selector: 'app-produto',
   templateUrl: './produto.page.html',
@@ -12,6 +13,7 @@ export class ProdutoPage implements OnInit {
 
 // public produto = {};
 
+      compra;
       dadosProduto;
       productName;
       productPrice;
@@ -20,10 +22,11 @@ export class ProdutoPage implements OnInit {
       productId;
 
   constructor(
-    private actRoute: ActivatedRoute, 
-    private router:Router, 
-    public productService: AuthProductService, 
+    private actRoute: ActivatedRoute,
+    private router:Router,
+    public productService: AuthProductService,
     public toastController: ToastController,
+    public authService: AuthService,
   ) {}
 
 async presentToast() {
@@ -51,6 +54,17 @@ async presentToast() {
 
 }
 
+Compra(id:number){
+
+  this.authService.compraProduto(id).subscribe(
+    (res)=> {
+
+      this.VaipraHomeLogado();
+      this.presentToast();
+
+    });
+}
+
 
 VaipraHomeLogado(){
   this.router.navigate(['/home-logado']);
@@ -58,18 +72,13 @@ VaipraHomeLogado(){
 
   ngOnInit() {
       let user = localStorage.getItem('userToken');
-      // if(!user)  this.router.navigate(['/login']);
-      
+
        this.productId = this.actRoute.snapshot.paramMap.get('id'); //pega id
        console.log(this.productId)
-       this.getInformacoes(this.productId)
-    // this.productService.mostraProduto(this.productId).subscribe(
-    //   (res) => {
-    //     console.log(res[0]);
-    //     // this.produto = res[0];
-    //   }
-    // );
-  // }
+       this.getInformacoes(this.productId);
+
+  }
+  ionViewWillEnter(){
 
   }
 }

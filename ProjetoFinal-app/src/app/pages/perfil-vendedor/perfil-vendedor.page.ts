@@ -19,14 +19,15 @@ export class PerfilVendedorPage implements OnInit {
     username;
     userplace;
     userToken;
-    user = JSON.parse(localStorage.getItem('Usuario'));
+
 
   constructor(private actRoute: ActivatedRoute,
     private router: Router,
     public authService: AuthService,
     public authProduct: AuthProductService,
-    public user: AuthService
+    // public user: AuthService
   ) {
+    let user = JSON.parse(localStorage.getItem('Usuario'));
 
     this.userId = user.id;
     this.username = user.name;
@@ -58,7 +59,7 @@ export class PerfilVendedorPage implements OnInit {
     this.userToken = localStorage.getItem('userToken');
     this.userId = this.actRoute.snapshot.paramMap.get('id');
     console.log(this.userId);
-    vaiProPerfilVendedor(this.userId);
+    this.vaiProPerfilVendedor(this.userId);
   }
 
   getDados(){

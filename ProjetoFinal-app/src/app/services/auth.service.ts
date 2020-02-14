@@ -16,8 +16,10 @@ export class AuthService {
     }
   }
 
-  compraProduto(id):Observable<any>{
-    return this.http.put(this.apiURL + 'compraProduto/', + id )
+  compraProduto(id:number):Observable<any>{
+    this.httpHeaders.headers["Authorization"] = "Bearer "+localStorage.getItem('userToken');
+    console.log(this.httpHeaders);
+    return this.http.put(this.apiURL + 'compraProduto/' + id, null, this.httpHeaders);
   }
 
   cadastroUsuario(form):Observable<any>{
