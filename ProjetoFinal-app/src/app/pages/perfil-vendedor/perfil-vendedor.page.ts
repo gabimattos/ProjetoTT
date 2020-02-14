@@ -43,21 +43,22 @@ export class PerfilVendedorPage implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+
+  ionViewWillEnter(){
     this.getDados();
   }
 
   getDados(){
-  console.log(this.userId);
-  this.authProduct.listaProdutos(this.userId).subscribe((res)=>{
-    console.log(res);
+    console.log(this.userId);
+    this.authProduct.listaProdutos(this.userId).subscribe((res)=>{
+    this.produtos = res[0];
+    console.log(res[0]);
 
-    this.usuario = res;
-    this.produtos = this.usuario.products;
-    console.log(this.produtos);
+    }, error=>{
+      console.log(error);
 
-  }, error=>{
-    console.log(error);
-
-  });
-}
+    });
+  }
 }

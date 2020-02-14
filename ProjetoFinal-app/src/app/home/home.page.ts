@@ -29,8 +29,7 @@ export class HomePage implements OnInit {
   getDados(){
   console.log(this.userId);
   this.authProduct.getProdutos().subscribe((res)=>{
-    this.produtoshome = res;
-    console.log("blabla")
+    this.produtoshome = res[0];
     console.log(this.produtoshome);
   }, error=>{
     console.log(error);

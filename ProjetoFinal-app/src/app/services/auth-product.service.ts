@@ -30,12 +30,14 @@ export class AuthProductService {
       return this.http.get(this.apiURL + 'mostraProduto/' + id, this.httpHeaders);
   }
 
+//lista os produtos do meu usuario
   listaProdutos(id): Observable<any> {
-      return this.http.get(this.apiURL + 'listaProdutos/' + id);
+      return this.http.get(this.apiURL + 'ProdutosUsuario/' + id);
   }
 
+//lista todos os produtos
   getProdutos(): Observable<any> {
-      return this.http.get(this.apiURL + 'listaProdutos');
+      return this.http.get(this.apiURL + 'listaTodosProdutos');
   }
 
 

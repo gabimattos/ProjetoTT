@@ -12,7 +12,7 @@ class Product extends Model
 {
     public function users()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsToMany('App\User');
     }
 
     public function types()
@@ -20,10 +20,7 @@ class Product extends Model
         return $this->belongsTo('App\Type');
     }
 
-    public function purchases()
-    {
-        return $this->hasMany('App\Purchase');
-    }
+
 
 
     public function createProduct(Request $request){

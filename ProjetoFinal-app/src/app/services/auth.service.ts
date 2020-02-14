@@ -16,6 +16,10 @@ export class AuthService {
     }
   }
 
+  compraProduto(id):Observable<any>{
+    return this.http.put(this.apiURL + 'compraProduto/', + id )
+  }
+
   cadastroUsuario(form):Observable<any>{
     return this.http.post(this.apiURL + 'registraUser', form, this.httpHeaders);
   }

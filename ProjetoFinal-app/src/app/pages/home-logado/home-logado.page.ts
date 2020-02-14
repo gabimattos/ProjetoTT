@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router' ;
 import {AuthService} from  '../../services/auth.service';
 import {AuthProductService} from '../../services/auth-product.service';
-import {ActivatedRoute} from '@angular/router;'
+import {ActivatedRoute} from '@angular/router';
 
 
 
@@ -16,7 +16,6 @@ export class HomeLogadoPage implements OnInit {
   // public produtos = [];
 
   produtos;
-  bla: any[];
   vendedores: any[];
   userId;
   username;
@@ -33,6 +32,10 @@ export class HomeLogadoPage implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+
+  ionViewWillEnter(){
     this.getDados();
     this.getSeller();
   }
@@ -40,8 +43,8 @@ export class HomeLogadoPage implements OnInit {
   getDados(){
   console.log(this.userId);
   this.authProduct.getProdutos().subscribe((res)=>{
-    this.bla = res;
-    console.log(this.bla);
+    this.produtos = res[0];
+    console.log(res);
   }, error=>{
     console.log(error);
   });
@@ -58,7 +61,4 @@ this.authService.getSellers().subscribe((res)=>{
 });
 }
 
-public ProdutoSelecionado(id){
-  this.router.navigate(['/produto', {Produtoid: id}]);
-}
 }

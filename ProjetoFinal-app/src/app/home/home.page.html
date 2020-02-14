@@ -1,132 +1,70 @@
 <ion-header>
-  <!-- <ion-buttons slot="start">
-    <ion-menu-button></ion-menu-button>
-  </ion-buttons> -->
-
   <ion-grid>
-    <ion-row class="ion-justify-content-center">
+    <ion-row class="ion-justify-content-start">
       <ion-col  size="2" id="col3">
 
         <ion-buttons>
           <ion-menu-button color="dark"></ion-menu-button>
         </ion-buttons>
 
-
-      </ion-col>
-
-      <ion-col (click)="VaiproLogin()" id="col1">
-        <!-- <ion-searchbar showCancelButton="never" ></ion-searchbar> BARRA DE PESQUISA IGUAL DA PAGE PESQUISA-->
-        Faça sua busca
-      </ion-col>
-
-      <ion-col size="3" id="col2">
-        <ion-icon (click)="VaiproLogin()" name="cart" id="shopp" ></ion-icon>
       </ion-col>
     </ion-row>
-
-
   </ion-grid>
 
 </ion-header>
 
 <ion-content>
 
-
   <ion-grid>
     <ion-row>
+      <h1>Produtos Cadastrados</h1>
 
-    <h1>Produtos Cadastrados</h1>
+      <ion-slides  [options]="slideOpts">
 
-    <ion-slides  [options]="slideOpts">
+        <ion-slide *ngFor = "let produto of produtoshome">
+          <app-produtos-home [prodHome]="produto"></app-produtos-home>
+        </ion-slide>
 
-      <ion-slide *ngFor = "let produto of produtoshome">
-        <app-produtos-home [prodHome]="produto"></app-produtos-home>
+      </ion-slides>
+    </ion-row>
 
-    </ion-slide>
-  </ion-slides>
+    <ion-row>
 
-  </ion-row>
+      <h1>Produtores Cadastrados</h1>
+      <ion-slides  [options]="slideOpts">
 
-  <ion-row>
+        <ion-slide *ngFor = "let vendedor of vendedoreshome">
+          <app-vendedores-home [vendedoresHome]="vendedor"></app-vendedores-home>
+        </ion-slide>
 
-  <h1>Produtores Cadastrados</h1>
+      </ion-slides>
+    </ion-row>
 
-  <ion-slides  [options]="slideOpts">
+    <ion-row>
 
-    <ion-slide *ngFor = "let vendedor of vendedoreshome">
-        <app-vendedores-home [vendedoresHome]="vendedor"></app-vendedores-home>
-    </ion-slide>
+      <h1>Produtores Conhecidos.</h1>
 
-</ion-slides>
+      <ion-slides  [options]="slideOpts">
+        <ion-slide>
 
-</ion-row>
+          <ion-card class="cardhome">
+            <ion-card-header id="feira1" > </ion-card-header>
+            <ion-card-content > Tenda do Rafa</ion-card-content>
+          </ion-card>
 
-<ion-row>
+          <ion-card class="cardhome">
+            <ion-card-header id="feira2" > </ion-card-header>
+            <ion-card-content > Organicos do Gabriel</ion-card-content>
+          </ion-card>
 
-<h1>Produtores Conhecidos.</h1>
+          <ion-card class="cardhome">
+            <ion-card-header id="feira3" > </ion-card-header>
+            <ion-card-content > GabiFrutas</ion-card-content>
+          </ion-card>
 
-<ion-slides  [options]="slideOpts">
+        </ion-slide>
 
-  <ion-slide>
-
-    <ion-card class="cardhome">
-      <ion-card-header id="feira1" > </ion-card-header>
-      <ion-card-content > Tenda do Rafa</ion-card-content>
-    </ion-card>
-
-    <ion-card class="cardhome">
-      <ion-card-header id="feira2" > </ion-card-header>
-      <ion-card-content > Organicos do Gabriel</ion-card-content>
-    </ion-card>
-
-    <ion-card class="cardhome">
-      <ion-card-header id="feira3" > </ion-card-header>
-      <ion-card-content > GabiFrutas</ion-card-content>
-    </ion-card>
-
-</ion-slide>
-
-<ion-slide>
-
-  <ion-card class="cardhome">
-    <ion-card-header id="feira4" > </ion-card-header>
-    <ion-card-content > Frutas e Verguras </ion-card-content>
-  </ion-card>
-
-  <ion-card class="cardhome">
-    <ion-card-header id="feira5" > </ion-card-header>
-    <ion-card-content > NatureLife </ion-card-content>
-  </ion-card>
-
-  <ion-card class="cardhome">
-    <ion-card-header id="feira6" > </ion-card-header>
-    <ion-card-content > Barraca da Ana </ion-card-content>
-  </ion-card>
-
-</ion-slide>
-
-
-</ion-slides>
-
-</ion-row>
-      <!-- <ion-col>
-        <ion-card class="cardhome">
-          <ion-card-header id="imgcard1" > </ion-card-header>
-          <ion-card-content > </ion-card-content>
-        </ion-card>
-      </ion-col>
-
-      <ion-col>
-        <ion-card class="cardhome">
-          <ion-card-header id="imgcard2" > </ion-card-header>
-            <ion-card-content > </ion-card-content>
-        </ion-card>
-
-      </ion-col>
-
-    </ion-row> -->
-<!-- ****************************************** -->
-
-
+      </ion-slides>
+    </ion-row>
   </ion-grid>
 </ion-content>

@@ -45,17 +45,7 @@ class User extends Authenticatable
 
     public function products()
     {
-        return $this->hasMany('App\Product');
-    }
-
-    public function purchases()
-    {
-        return $this->hasMany('App\Purchase');
-    }
-
-    public function states()
-    {
-        return $this->belongsTo('App\State');
+        return $this->belongsToMany('App\Product');
     }
 
     public function createUser($request){

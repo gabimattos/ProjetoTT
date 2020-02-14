@@ -1,26 +1,14 @@
 <ion-header>
   <ion-grid>
-    <ion-row class="ion-justify-content-center">
+    <ion-row class="ion-justify-content-start">
       <ion-col  size="2" id="col3">
 
         <ion-buttons>
           <ion-menu-button color="dark"></ion-menu-button>
         </ion-buttons>
 
-
       </ion-col>
 
-      <ion-col  id="col1">
-        <!-- <ion-searchbar showCancelButton="never" ></ion-searchbar> BARRA DE PESQUISA IGUAL DA PAGE PESQUISA-->
-        Faça sua busca
-      </ion-col>
-
-      <!-- (click)="VaiproBuscar()" -->
-
-      <ion-col size="3" id="col2">
-        <ion-icon  name="cart" id="shopp" ></ion-icon>
-      </ion-col>
-      <!-- (click)="VaiproCarrinho()" -->
 
     </ion-row>
 
@@ -46,7 +34,7 @@
 
       <ion-slides  [options]="slideOpts">
 
-        <ion-slide *ngFor ="let produto of bla">
+        <ion-slide *ngFor ="let produto of produtos">
           <app-produtos [prodObj]="produto"></app-produtos>
         </ion-slide>
 
