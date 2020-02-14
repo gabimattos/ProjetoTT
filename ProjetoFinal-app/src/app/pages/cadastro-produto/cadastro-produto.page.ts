@@ -19,6 +19,7 @@ export class CadastroProdutoPage implements OnInit {
     quantity:[null, [Validators.required]],
     price: [null, [Validators.required]],
     description:[null],
+    
 
   });
 

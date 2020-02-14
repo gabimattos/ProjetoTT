@@ -32,7 +32,7 @@ export class HomeLogadoPage implements OnInit {
   }
 
   vaiProPerfilVendedor(id){
-    this.router.navigate(['/perfil-vendedor', id]);
+    this.router.navigate(['/perfil-vendedor/', id]);
   }
 
 
