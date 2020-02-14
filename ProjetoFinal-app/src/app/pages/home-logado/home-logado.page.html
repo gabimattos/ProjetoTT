@@ -49,7 +49,7 @@
 
       <ion-slides  [options]="slideOpts">
 
-        <ion-slide *ngFor = "let vendedor of vendedores">
+        <ion-slide *ngFor = "let vendedor of vendedores" >
           <app-vendedores [prodObj]="vendedor"></app-vendedores>
         </ion-slide>
 

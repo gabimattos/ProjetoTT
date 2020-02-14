@@ -62,7 +62,7 @@ this.authService.getSellers().subscribe((res)=>{
   console.log(res);
   this.vendedores = res[0];
   console.log(this.vendedores);
-}, error=>{
+}, (error)=>{
   console.log(error);
 });
 }
