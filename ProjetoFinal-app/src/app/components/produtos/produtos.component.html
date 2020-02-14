@@ -1,9 +1,11 @@
 <ion-card button href="/produto/{{prodObj.id}}" class="card">
+
   <ion-card-header>
-    <h1>{{prodObj.productName}}</h1>
+    <img class="imgcard" src="../../../assets/imagens/iconeProdutos.jpg" alt="">
   </ion-card-header>
 
   <ion-card-content>
+      <h1>{{prodObj.productName}}</h1>
     <h2>Preço/Kg: {{prodObj.price}} reais</h2>
     <h2>Quantidade em estoque: {{prodObj.quantity}}</h2>
 

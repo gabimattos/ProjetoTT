@@ -1,13 +1,13 @@
 <ion-card [routerLink]="['/login']" class="card">
+
   <ion-card-header>
-    <h1>{{prodHome.productName}}</h1>
+    <img class="imgcard" src="../../../assets/imagens/iconeProdutos.jpg" alt="">
   </ion-card-header>
 
   <ion-card-content>
+    <h1>{{prodHome.productName}}</h1>
     <h2>Preço/Kg: {{prodHome.price}} reais</h2>
     <h2>Quantidade em estoque: {{prodHome.quantity}}</h2>
-
-
-
   </ion-card-content>
+  
 </ion-card>

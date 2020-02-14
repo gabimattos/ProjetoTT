@@ -59,7 +59,7 @@ export class PerfilVendedorPage implements OnInit {
     this.userToken = localStorage.getItem('userToken');
     this.userId = this.actRoute.snapshot.paramMap.get('id');
     console.log(this.userId);
-    this.vaiProPerfilVendedor(this.userId);
+    this.vaiProPerfilVendedor();
   }
 
   getDados(){
